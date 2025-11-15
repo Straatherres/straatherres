@@ -119,13 +119,13 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%; /* 70% van de breedte */
+    width: 70%; /* 70% van de breedte */
     height: 100%;
     background-image: url('images/Spraypaint.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1 ; /* 20% opacity */
+    opacity: 0.2; /* 20% opacity */
     z-index: 1;
 }
 
@@ -432,6 +432,10 @@ body {
     /* Groter en schaalbaar */
     font-size: clamp(3rem, 10vw, 5rem);
     margin-bottom: 20px;
+    
+    /* !! NIEUWE REGELS OM DE TITEL VOORAAN TE KRIJGEN !! */
+    position: relative;
+    z-index: 3; /* Hoger dan het formulier (2) en de blokken (1) */
 }
 
 .contact-form-wrapper {
@@ -439,7 +443,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     position: relative; /* Boven de rode blokken */
-    z-index: 10;
+    z-index: 2;
 }
 
 .form-group {
@@ -845,4 +849,3 @@ body {
         justify-content: center;
     }
 }
-
