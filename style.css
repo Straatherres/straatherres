@@ -250,9 +250,15 @@ body {
 .torn-paper-divider,
 .torn-paper-divider-bottom {
     position: absolute;
-    /* Dwingt 100% breedte */
-    left: 0;
-    right: 0;
+    /* !! AANGEPAST: Dit is de nieuwe, robuuste methode !! */
+    width: 100vw; /* 100% van de SCHERM-breedte */
+    left: 50%; /* Centreer het blok */
+    margin-left: -50vw; /* Trek het terug naar de linkerrand */
+
+    /* !! VERWIJDERD: Deze regels zijn vervangen !! */
+    /* left: 0; */
+    /* right: 0; */
+    
     /* Aangepaste hoogte */
     height: 80px;
     z-index: 11; /* Bovenop alles */
