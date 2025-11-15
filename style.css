@@ -115,9 +115,9 @@ body {
 #home {
     position: relative; 
     height: 1200px; 
-    background-color: #333; 
+    background-color: #0F0800; 
     /* AFBEELDING 0 (ACHTERGROND) */
-    background-image: url('https://img.freepik.com/premium-vector/dark-black-abstract-flat-urban-street-art-graffiti-style-vector-illustration-template-background-art_214056-1247.jpg');
+    background-image: url('images/Spraypaint.svg');
     background-size: cover; 
     background-position: center center; 
     display: flex;
@@ -239,7 +239,7 @@ body {
     display: flex;
     align-items: center;
     /* Vervang 'background-color' hierboven door: */
-    /* background-image: url('images/are-image.png'); */
+    background-image: url('images/Naamloos-1.svg');
     /* background-size: cover; */
 }
 
@@ -738,4 +738,5 @@ body {
     .review-ticker-track {
         width: calc((300px + 30px) * 12);
     }
+
 }
