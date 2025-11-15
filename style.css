@@ -107,7 +107,7 @@ body {
     display: flex;
     align-items: flex-start; 
     justify-content: center;
-    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
+    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
     /* !! AANGEPAST: z-index toegevoegd voor stapelvolgorde !! */
     z-index: 5; 
 }
@@ -389,7 +389,7 @@ body {
     padding-bottom: 200px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
+    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
 }
 
 .bookings-container {
@@ -510,7 +510,7 @@ body {
     padding-bottom: 150px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
+    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
 }
 
 .reviews-container {
@@ -568,13 +568,15 @@ body {
 .review-ticker-wrapper::before {
     left: 0;
     /* Fade van de achtergrondkleur naar transparant */
-    background: linear-gradient(to right, var(--zwart) 0%, rgba(15, 8, 0, 0) 100%);
+    /* !! AANGEPAST: 'rgba' vervangen door 'transparent' !! */
+    background: linear-gradient(to right, var(--zwart) 0%, transparent 100%);
 }
 
 .review-ticker-wrapper::after {
     right: 0;
     /* Fade van transparant naar de achtergrondkleur */
-    background: linear-gradient(to left, var(--zwart) 0%, rgba(15, 8, 0, 0) 100%);
+    /* !! AANGEPAST: 'rgba' vervangen door 'transparent' !! */
+    background: linear-gradient(to left, var(--zwart) 0%, transparent 100%);
 }
 
 
@@ -682,7 +684,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900; 
     text-align: left; /* Links uitlijnen */
-    width: auto; /* Laat de breedte door de inhoud bepalen */
+    width: auto; /* Laat de breedte door de inhoud te bepalen */
     /* Optioneel: max-width als je niet te ver naar rechts wilt */
     /* max-width: 80%; */ 
 }
@@ -710,6 +712,14 @@ body {
     font-size: clamp(2.5rem, 8vw, 5rem); /* Groter dan de rest */
     font-weight: 400; 
     display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
+}
+
+/* !! NIEUW: Footer voor de zwarte achtergrond onder de laatste scheur !! */
+.footer-background {
+    background-color: var(--zwart);
+    height: 100px; /* Een beetje hoogte om de zwarte kleur te tonen */
+    position: relative;
+    z-index: 1; /* Onder de #final-image */
 }
 
 
@@ -857,3 +867,13 @@ body {
         justify-content: center;
     }
 }
+```
+
+Om dit te laten werken, moet je ook een kleine wijziging aanbrengen in je **`index.html`**-bestand:
+
+1.  Zoek de `#final-image` sectie.
+2.  **Voeg direct na de `</section>`-tag van `#final-image` deze nieuwe `<footer>` sectie toe:**
+
+    ```html
+    <footer class="footer-background">
+        <!-- Hier kun je eventueel later footer content toevoegen, of het leeg laten --></footer>
