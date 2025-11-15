@@ -1,0 +1,741 @@
+/* --- VOEG HIER JE CUSTOM FONT-BESTANDEN TOE --- */
+/*
+@font-face {
+    font-family: 'Novecento NarrowBold';
+    src: url('fonts/Novecento-Bold.woff2') format('woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Ballore Grayson';
+    src: url('fonts/BalloreGrayson.woff2') format('woff2');
+    font-weight: 400;
+}
+*/
+
+/* Basis reset en thema-kleuren */
+:root {
+    --rood: #CF3026; 
+    --rood-hover: #a9271f; 
+    --zwart: #0F0800;
+    --wit: #F8F5F7; 
+    --geel: #FFEB51; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Probeert Novecento, anders Montserrat */
+    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    background-color: var(--wit); 
+}
+
+/* --- Navigatiebalk Styling --- */
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 8, 0, 0.99); 
+    z-index: 1000;
+    padding: 5px 0; 
+}
+.navbar-container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+.logo img {
+    height: 50px; 
+    width: auto; 
+}
+.nav-links {
+    list-style: none;
+    display: flex; 
+    align-items: center;
+}
+.nav-links li {
+    margin-left: 25px; 
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--wit); 
+    font-weight: 700; 
+    font-size: 16px;
+    transition: color 0.3s ease;
+    text-transform: uppercase; 
+}
+.nav-links a:hover {
+    color: var(--rood); 
+}
+
+/* --- Speciale 'Bookings' Knop Styling --- */
+.cta-knop {
+    display: inline-block; 
+    text-decoration: none;
+    background-color: var(--rood);
+    color: var(--wit) !important; 
+    border-radius: 50px; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.cta-knop:hover {
+    background-color: var(--rood-hover); 
+    color: var(--wit) !important;
+    transform: scale(1.05); 
+}
+.nav-knop.cta-knop {
+    padding: 10px 20px;
+    font-size: 16px; 
+}
+
+/* --- Hamburger Icoon Styling --- */
+.hamburger {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px; 
+}
+.hamburger .streep {
+    width: 25px;
+    height: 3px;
+    background-color: var(--wit); 
+    border-radius: 2px;
+}
+
+/* --- Hero Sectie --- */
+#home {
+    position: relative; 
+    height: 1200px; 
+    background-color: #333; 
+    /* AFBEELDING 0 (ACHTERGROND) */
+    background-image: url('https://img.freepik.com/premium-vector/dark-black-abstract-flat-urban-street-art-graffiti-style-vector-illustration-template-background-art_214056-1247.jpg');
+    background-size: cover; 
+    background-position: center center; 
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+/* --- Video Wrapper (Grootte & Positie) --- */
+.video-wrapper {
+    position: absolute;
+    bottom: 200px;
+    right: calc(4% - 10px);
+    width: 60vw; 
+    height: 33.75vw; /* 16:9 ratio */
+    min-width: 300px;
+    min-height: 168.75px;
+    max-width: 800px; 
+    max-height: 450px; 
+    z-index: 2; 
+}
+
+/* --- Gele Blokken --- */
+.geel-video-blok {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--geel);
+    transform: rotate(1deg); 
+    z-index: 1; /* Ligt onder de video */
+}
+.geel-video-blok.blok-1 {}
+.geel-video-blok.blok-2 {
+    transform: translate(15px, 10px) rotate(1deg);
+}
+
+/* --- YouTube Video --- */
+.youtube-video {
+    position: relative; 
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 2; /* Ligt boven de gele blokken */
+    overflow: hidden;
+}
+
+/* AFBEELDING 3: HERO LINKS */
+.hero-image-placeholder-left {
+    position: absolute;
+    left: 20px;
+    bottom: 20px; 
+    width: clamp(150px, 20vw, 300px);
+    height: clamp(150px, 20vw, 300px);
+    background-color: #333;
+    border: 2px dashed var(--geel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    color: var(--geel);
+    z-index: 1; 
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/hero-links.png'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+
+.hero-content {
+    position: relative; 
+    z-index: 10; 
+    color: var(--wit); 
+    padding-top: 100px; 
+    width: 90%; 
+    max-width: 1200px; 
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 9rem);
+    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    font-weight: 900; 
+    text-transform: uppercase;
+    line-height: 0.95; 
+}
+.hero-title span {
+    display: block; 
+}
+.hero-title .align-left {
+    text-align: left;
+}
+.hero-title .align-right {
+    text-align: right;
+}
+.street-row {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 20px; 
+}
+
+.are-row {
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+    text-align: left;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+/* AFBEELDING 2: TODO (naast 'ARE') */
+.are-image-placeholder {
+    background-color: #333;
+    border: 2px dashed var(--geel);
+    color: var(--geel);
+    padding: 10px 40px; 
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/are-image.png'); */
+    /* background-size: cover; */
+}
+
+.hero-knop.cta-knop {
+    font-size: clamp(1rem, 2.5vw, 1.5rem); 
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
+}
+
+/* AFBEELDING 4, 6, 8: SCHEIDINGSLIJNEN */
+.torn-paper-divider,
+.torn-paper-divider-bottom {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 11;
+    transform: translateY(50%); /* Centreert op de lijn */
+    height: 30px;
+    background-color: #333;
+    border-top: 2px dashed var(--rood);
+    border-bottom: 2px dashed var(--rood);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rood);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/scheidingslijn-1.png'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* border: none; */ /* Verwijder de dashed borders als je een afbeelding gebruikt */
+}
+
+/* /* --- About Us Sectie --- 
+*/
+#about-us {
+    position: relative; 
+    scroll-margin-top: 70px; 
+    padding: 100px 0;
+    background-color: var(--zwart); 
+    color: var(--wit);
+    min-height: 600px; 
+}
+
+.about-us-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0px; 
+}
+
+.about-us-title {
+    flex-basis: 10%; 
+    transform: rotate(90deg); 
+    font-size: 5rem; 
+    font-weight: 900;
+    text-transform: uppercase;
+    align-self: center; 
+}
+.about-us-title .text-rood {
+    color: var(--rood);
+    /* Probeert Ballore, anders Luckiest Guy */
+    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+}
+
+.about-us-title span {
+    display: block; 
+    line-height: 1; 
+}
+
+.about-us-title span:first-child {
+    margin-right: 5rem; 
+}
+
+.about-us-content {
+    flex-basis: 90%; 
+    position: relative; 
+}
+
+.about-us-content p {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.1rem;
+    line-height: 1.7;
+    position: relative; 
+    z-index: 2;
+    padding-bottom: 50px; 
+}
+
+/* AFBEELDING 5: ABOUT US RECHTS */
+.about-us-image-placeholder {
+    position: absolute;
+    right: 0;
+    bottom: 0; 
+    width: clamp(100px, 15vw, 200px);
+    height: clamp(100px, 15vw, 200px);
+    background-color: #333;
+    border: 2px dashed var(--geel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    color: var(--geel);
+    z-index: 1; 
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/about-us-rechts.png'); */
+    /* background-size: cover; */
+}
+
+
+/* --- Bookings Sectie --- */
+#bookings {
+    position: relative; 
+    scroll-margin-top: 20px;
+    background-color: var(--zwart);
+    padding: 65px 0 250px 0; 
+}
+
+.bookings-container {
+    width: 90%;
+    max-width: 600px; 
+    margin: 0 auto;
+    position: relative;
+    z-index: 10; 
+}
+
+.bookings-decor-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.rood-blok {
+    position: absolute;
+    background-color: var(--rood);
+    width: 105%; 
+    height: 105%;
+    top: -2.5%;
+    left: -2.5%;
+}
+
+.rood-blok.blok-1 {
+    transform: rotate(1deg);
+}
+
+.rood-blok.blok-2 {
+    transform: translate(15px, 10px) rotate(1deg);
+}
+
+
+.bookings-container h2 {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--wit); 
+    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif; 
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative; 
+    z-index: 2;
+}
+
+.contact-form-wrapper {
+    background-color: var(--wit);
+    color: var(--zwart); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative; 
+    z-index: 2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    background-color: #f0f0f0; 
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form-wrapper .cta-knop {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* AFBEELDING 7: BOOKINGS RECHTS */
+.bookings-image-placeholder-right {
+    position: absolute;
+    right: 20px;
+    bottom: 20px; 
+    width: clamp(150px, 20vw, 300px);
+    height: clamp(150px, 20vw, 300px);
+    background-color: #333;
+    border: 2px dashed var(--geel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    color: var(--geel);
+    z-index: 1; 
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/bookings-rechts.png'); */
+    /* background-size: cover; */
+}
+
+/* --- Reviews Sectie --- */
+#reviews {
+    position: relative; 
+    scroll-margin-top: 70px; 
+    background-color: var(--zwart);
+    padding: 100px 0 150px 0; 
+    overflow: hidden; 
+}
+
+.reviews-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.reviews-container h2 {
+    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    color: var(--wit);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: left; 
+    margin-bottom: 20px; 
+    position: relative;
+    z-index: 10;
+}
+
+.review-intro-text {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--wit);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px; 
+    margin-bottom: 40px; 
+    text-align: left;
+    position: relative;
+    z-index: 10;
+}
+
+.review-ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 10; 
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    margin-bottom: 30px; 
+}
+
+.review-ticker-track {
+    display: flex;
+    width: calc((400px + 30px) * 12); 
+    animation: ticker 80s linear infinite; 
+}
+
+.review-ticker-track.reverse {
+    animation: ticker-reverse 80s linear infinite;
+}
+
+.review-blok {
+    background-color: var(--rood);
+    border: 10px solid var(--wit);
+    color: var(--wit);
+    padding: 25px;
+    border-radius: 10px;
+    margin-right: 30px; 
+    width: 400px; 
+    flex-shrink: 0; 
+}
+
+.review-blok p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.review-blok span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes ticker-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* AFBEELDING 9: REVIEWS RECHTS */
+.review-photo-placeholder {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: clamp(200px, 30vw, 400px); 
+    height: clamp(200px, 30vw, 400px); 
+    background-color: #333;
+    border: 2px dashed var(--geel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    color: var(--geel);
+    z-index: 1; 
+    /* Vervang 'background-color' hierboven door: */
+    /* background-image: url('images/reviews-rechts.png'); */
+    /* background-size: cover; */
+}
+
+/* --- Laatste Afbeelding Sectie --- */
+#final-image {
+    height: 500px;
+    width: 100%;
+    /* AFBEELDING 10: STATISCH (ONDER) */
+    background-image: url('https://placehold.co/1920x500/333333/FFFFFF?text=AFBEELDING+10:+STATISCH');
+    background-size: cover;
+    background-position: center;
+    position: relative; 
+}
+
+.final-image-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+
+/* --- @MEDIA QUERY (Mobiele Weergave) --- */
+@media (max-width: 768px) {
+    
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 59px; 
+        right: 0;
+        width: 100%;
+        background-color: var(--zwart); 
+        flex-direction: column; 
+        padding: 20px;
+    }
+    .nav-links.actief {
+        display: flex; 
+    }
+    .nav-links li {
+        margin: 10px 0; 
+        text-align: center;
+    }
+    .hamburger {
+        display: flex; 
+    }
+
+    #home {
+        height: 800px; 
+    }
+    .hero-content {
+        padding-top: 80px; 
+    }
+    .hero-title .align-left,
+    .hero-title .align-right {
+        text-align: center;
+    }
+    .street-row {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 10px;
+    }
+    
+    .are-row {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-knop.cta-knop {
+        display: none; 
+    }
+
+    .video-wrapper {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 150px; 
+    }
+    
+    .geel-video-blok.blok-2 {
+        transform: translate(10px, 5px) rotate(1deg);
+    }
+
+    .about-us-container {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    .about-us-title {
+        transform: rotate(0deg); 
+        flex-basis: auto;
+        text-align: center;
+        font-size: 3.5rem; 
+    }
+    
+    .about-us-title span:first-child {
+        margin-right: 0; 
+    }
+    
+    .about-us-content {
+        flex-basis: auto;
+        text-align: center;
+    }
+    .about-us-content p {
+        font-size: 1rem;
+        max-width: 100%; 
+    }
+    
+    #bookings {
+        padding: 100px 0; 
+    }
+    
+    .contact-form-wrapper {
+        padding: 20px; 
+    }
+    
+    #reviews {
+        padding: 100px 0 100px 0;
+    }
+
+    .reviews-container h2 {
+        text-align: center; 
+    }
+    
+    .review-intro-text {
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .review-blok {
+        width: 300px; 
+        padding: 20px;
+    }
+    
+    .review-ticker-track {
+        width: calc((300px + 30px) * 12);
+    }
+}
