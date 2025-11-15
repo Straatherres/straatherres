@@ -119,13 +119,13 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; /* 70% van de breedte */
+    width: 100%; /* 70% van de breedte */
     height: 100%;
     background-image: url('images/Spraypaint.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.2; /* 20% opacity */
+    opacity: 0.1 ; /* 20% opacity */
     z-index: 1;
 }
 
@@ -439,7 +439,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     position: relative; /* Boven de rode blokken */
-    z-index: 2;
+    z-index: 10;
 }
 
 .form-group {
@@ -845,3 +845,4 @@ body {
         justify-content: center;
     }
 }
+
