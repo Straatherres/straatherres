@@ -237,9 +237,9 @@ body {
     position: absolute;
     left: 0;
     bottom: 0; 
-    /* !! AANGEPAST: MAX-GROOTTE VERHOOGD !! */
-    width: clamp(300px, 45vw, 800px); 
-    height: clamp(300px, 45vw, 800px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 300px) !! */
+    width: clamp(350px, 45vw, 800px); 
+    height: clamp(350px, 45vw, 800px); 
     z-index: 1; 
     background-image: url('images/BeginstukPersoon1.svg');
     background-size: cover;
@@ -368,9 +368,9 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* !! AANGEPAST: MAX-GROOTTE VERLAAGD !! */
-    width: clamp(300px, 45vw, 500px); 
-    height: clamp(300px, 45vw, 500px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 300px) !! */
+    width: clamp(350px, 45vw, 500px); 
+    height: clamp(350px, 45vw, 500px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
     background-size: cover;
@@ -489,9 +489,9 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* !! AANGEPAST: MAX-GROOTTE VERLAAGD !! */
-    width: clamp(400px, 60vw, 600px); 
-    height: clamp(400px, 60vw, 600px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 400px) !! */
+    width: clamp(450px, 60vw, 600px); 
+    height: clamp(450px, 60vw, 600px); 
     z-index: 1; /* Achter het formulier */
     background-image: url('images/BookingPersoon3.svg');
     background-size: cover;
@@ -502,8 +502,8 @@ body {
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 2; 
+    /* !! AANGEPAST: Deze sectie gaat naar de achtergrond !! */
+    z-index: 1; 
     scroll-margin-top: 70px; 
     /* Hoogte verkleind */
     padding-top: 100px;
@@ -638,9 +638,9 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* 2x groter (was 200/30/400) */
-    width: clamp(400px, 60vw, 800px); 
-    height: clamp(400px, 60vw, 800px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 400px) !! */
+    width: clamp(450px, 60vw, 800px); 
+    height: clamp(450px, 60vw, 800px); 
     z-index: 1; /* Achter de review-tekst */
     background-image: url('images/ReviewPersoon4.svg');
     background-size: cover;
@@ -651,13 +651,13 @@ body {
 /* --- Laatste Afbeelding Sectie --- */
 /* !! AFBEELDING 10: STATISCH (ONDER) !! */
 #final-image {
-    height: 500px; 
+    height: 250px; /* !! AANGEPAST: was 500px !! */
     background-image: url('images/Scheur4.svg');
     background-size: cover;
     background-position: center;
     position: relative; 
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 1; 
+    /* !! AANGEPAST: Deze sectie komt nu bovenop 'reviews' !! */
+    z-index: 2; 
     /* 30px omhoog (overlappen) */
     margin-top: -30px;
 }
@@ -743,7 +743,7 @@ body {
         height: 800px; 
     }
     .hero-content {
-        padding-top: 80px; 
+        padding-top: 100px; /* !! AANGEPAST: was 80px, nu lager !! */
         padding-left: 0; 
         padding-right: 0;
     }
@@ -764,11 +764,12 @@ body {
         display: none; 
     }
     
-    /* Afbeelding 3 (Mobiel) */
-    .hero-image-placeholder-left {
+    /* !! VERWIJDERD: Deze regel zorgde voor extra krimp !! */
+    /* .hero-image-placeholder-left {
         width: 80vw;
         height: 80vw;
     }
+    */
 
     /* --- Video Wrapper Mobiel (Gecentreerd) --- */
     .video-wrapper {
@@ -842,7 +843,7 @@ body {
     
     /* --- Laatste Afbeelding Mobiel --- */
     #final-image {
-        height: 300px;
+        height: 150px; /* !! AANGEPAST: was 300px !! */
     }
 
     /* Instagram tekst op mobiel */
