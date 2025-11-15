@@ -115,9 +115,9 @@ body {
 #home {
     position: relative; 
     height: 1200px; 
-    background-color: #0F0800; 
-    /* AFBEELDING 0 (ACHTERGROND) */
-    background-image: url('images/Spraypaint.svg');
+    background-color: #333; 
+    /* AFBEELDING 0 (ACHTERGROND) - Niet gewijzigd */
+    background-image: url('https://img.freepik.com/premium-vector/dark-black-abstract-flat-urban-street-art-graffiti-style-vector-illustration-template-background-art_214056-1247.jpg');
     background-size: cover; 
     background-position: center center; 
     display: flex;
@@ -163,26 +163,19 @@ body {
     overflow: hidden;
 }
 
-/* AFBEELDING 3: HERO LINKS */
+/* !! AFBEELDING 3: HERO LINKS !! */
 .hero-image-placeholder-left {
     position: absolute;
     left: 20px;
     bottom: 20px; 
     width: clamp(150px, 20vw, 300px);
     height: clamp(150px, 20vw, 300px);
-    background-image: url('images/hero-links.png'); */
+    z-index: 1; 
+    /* Placeholder stijlen verwijderd */
+    background-image: url('images/BeginstukPersoon1.svg');
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 10px;
-    color: var(--geel);
-    z-index: 1; 
-    /* Vervang 'background-color' hierboven door: */
-    /* 
+    background-repeat: no-repeat;
 }
 
 
@@ -226,20 +219,15 @@ body {
     justify-content: flex-start;
     margin-top: 1rem;
 }
-/* AFBEELDING 2: TODO (naast 'ARE') */
+/* !! AFBEELDING 2: TODO (naast 'ARE') !! */
 .are-image-placeholder {
-    background-color: #333;
-    border: 2px dashed var(--geel);
-    color: var(--geel);
-    padding: 10px 40px; 
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
     height: 50px; 
-    display: flex;
-    align-items: center;
-    /* Vervang 'background-color' hierboven door: */
+    min-width: 150px; /* Geef het een basisbreedte */
+    /* Placeholder stijlen verwijderd */
     background-image: url('images/Naamloos-1.svg');
-    /* background-size: cover; */
+    background-size: contain; /* 'Contain' is beter voor een SVG-logo */
+    background-position: left center; /* Lijn links uit */
+    background-repeat: no-repeat;
 }
 
 .hero-knop.cta-knop {
@@ -247,7 +235,7 @@ body {
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
 }
 
-/* AFBEELDING 4, 6, 8: SCHEIDINGSLIJNEN */
+/* !! AFBEELDING 4, 6, 8: SCHEIDINGSLIJNEN (Basis) !! */
 .torn-paper-divider,
 .torn-paper-divider-bottom {
     position: absolute;
@@ -255,24 +243,28 @@ body {
     left: 0;
     width: 100%;
     z-index: 11;
-    transform: translateY(50%); /* Centreert op de lijn */
+    transform: translateY(50%); 
     height: 30px;
-    background-color: #333;
-    border-top: 2px dashed var(--rood);
-    border-bottom: 2px dashed var(--rood);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--rood);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: bold;
-    /* Vervang 'background-color' hierboven door: */
-    /* background-image: url('images/scheidingslijn-1.png'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* border: none; */ /* Verwijder de dashed borders als je een afbeelding gebruikt */
+    /* Placeholder stijlen verwijderd */
+    background-size: cover; /* Strekt de SVG uit over de 30px hoogte */
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+/* !! Specifieke paden voor de scheidingslijnen !! */
+#divider-1 {
+    /* AFBEELDING 4 */
+    background-image: url('images/Scheur1.svg');
+}
+#divider-2 {
+    /* AFBEELDING 6 */
+    background-image: url('images/Scheur2.svg');
+}
+#divider-3 {
+    /* AFBEELDING 8 */
+    background-image: url('images/Scheur3.svg');
+}
+
 
 /* /* --- About Us Sectie --- 
 */
@@ -331,26 +323,19 @@ body {
     padding-bottom: 50px; 
 }
 
-/* AFBEELDING 5: ABOUT US RECHTS */
+/* !! AFBEELDING 5: ABOUT US RECHTS !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
     width: clamp(100px, 15vw, 200px);
     height: clamp(100px, 15vw, 200px);
-    background-color: #333;
-    border: 2px dashed var(--geel);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 10px;
-    color: var(--geel);
     z-index: 1; 
-    /* Vervang 'background-color' hierboven door: */
-    /* background-image: url('images/about-us-rechts.png'); */
-    /* background-size: cover; */
+    /* Placeholder stijlen verwijderd */
+    background-image: url('images/AboutusPersoon2.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -454,26 +439,19 @@ body {
     font-size: 1.1rem;
 }
 
-/* AFBEELDING 7: BOOKINGS RECHTS */
+/* !! AFBEELDING 7: BOOKINGS RECHTS !! */
 .bookings-image-placeholder-right {
     position: absolute;
     right: 20px;
     bottom: 20px; 
     width: clamp(150px, 20vw, 300px);
     height: clamp(150px, 20vw, 300px);
-    background-color: #333;
-    border: 2px dashed var(--geel);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 10px;
-    color: var(--geel);
     z-index: 1; 
-    /* Vervang 'background-color' hierboven door: */
-    /* background-image: url('images/bookings-rechts.png'); */
-    /* background-size: cover; */
+    /* Placeholder stijlen verwijderd */
+    background-image: url('images/BookingPersoon3.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* --- Reviews Sectie --- */
@@ -578,34 +556,27 @@ body {
     }
 }
 
-/* AFBEELDING 9: REVIEWS RECHTS */
+/* !! AFBEELDING 9: REVIEWS RECHTS !! */
 .review-photo-placeholder {
     position: absolute;
     right: 0;
     bottom: 0;
     width: clamp(200px, 30vw, 400px); 
     height: clamp(200px, 30vw, 400px); 
-    background-color: #333;
-    border: 2px dashed var(--geel);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 10px;
-    color: var(--geel);
     z-index: 1; 
-    /* Vervang 'background-color' hierboven door: */
-    /* background-image: url('images/reviews-rechts.png'); */
-    /* background-size: cover; */
+    /* Placeholder stijlen verwijderd */
+    background-image: url('images/ReviewPersoon4.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* --- Laatste Afbeelding Sectie --- */
+/* !! AFBEELDING 10: STATISCH (ONDER) !! */
 #final-image {
     height: 500px;
     width: 100%;
-    /* AFBEELDING 10: STATISCH (ONDER) */
-    background-image: url('https://placehold.co/1920x500/333333/FFFFFF?text=AFBEELDING+10:+STATISCH');
+    background-image: url('images/Scheur4.svg');
     background-size: cover;
     background-position: center;
     position: relative; 
@@ -667,6 +638,11 @@ body {
         justify-content: center;
         flex-direction: column;
         gap: 10px;
+    }
+    
+    .are-image-placeholder {
+        background-position: center; /* Zorg dat het SVG-logo gecentreerd is */
+        min-width: 100px;
     }
 
     .hero-knop.cta-knop {
@@ -737,6 +713,4 @@ body {
     .review-ticker-track {
         width: calc((300px + 30px) * 12);
     }
-
 }
-
