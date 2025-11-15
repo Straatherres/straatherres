@@ -254,8 +254,10 @@ html, body {
 .torn-paper-divider-bottom {
     position: absolute;
     /* !! AANGEPAST: Robuustere methode voor volledige breedte !! */
-    left: 0;
-    right: 0;
+    /* !! DEZE 'FULL BLEED'-TRUC ZOU MOETEN WERKEN !! */
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
     
     /* Aangepaste hoogte */
     height: 80px;
@@ -270,14 +272,16 @@ html, body {
 .torn-paper-divider {
     /* Gecentreerd op de scheidingslijn */
     bottom: 0;
-    transform: translateY(50%);
+    /* Moet de translateX(-50%) behouden */
+    transform: translateX(-50%) translateY(50%);
 }
 
 /* Positionering voor de onderste 3 dividers */
 .torn-paper-divider-bottom {
     /* Gecentreerd op de scheidingslijn */
     bottom: 0;
-    transform: translateY(50%) scale(-1, -1); /* Gespiegeld */
+    /* Moet de translateX(-50%) behouden */
+    transform: translateX(-50%) translateY(50%) scale(-1, -1); /* Gespiegeld */
 }
 
 /* Specifieke afbeeldingen voor elke divider */
@@ -285,7 +289,8 @@ html, body {
     /* AFBEELDING 4 */
     /* Vervangen door Scheur 3 en gespiegeld */
     background-image: url('images/Scheur3.svg');
-    transform: translateY(50%) scaleX(-1); 
+    /* Moet de translateX(-50%) behouden */
+    transform: translateX(-50%) translateY(50%) scaleX(-1); 
 }
 #divider-2 {
     /* AFBEELDING 6 */
