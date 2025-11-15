@@ -111,6 +111,8 @@ html, body {
     justify-content: center;
     /* !! AANGEPAST: z-index toegevoegd voor stapelvolgorde !! */
     z-index: 5; 
+    /* !! AANGEPAST: width: 100% toegevoegd !! */
+    width: 100%;
 }
 
 /* Nieuwe Spraypaint Overlay */
@@ -306,6 +308,8 @@ html, body {
     background-color: var(--zwart); 
     color: var(--wit);
     min-height: 800px; /* !! AANGEPAST: Verhoogd van 600px, voor meer ruimte tussen tekst en afbeelding !! */
+    /* !! AANGEPAST: width: 100% toegevoegd !! */
+    width: 100%;
 }
 
 .about-us-container {
@@ -387,6 +391,8 @@ html, body {
     padding-bottom: 200px;
     background-color: var(--zwart); 
     color: var(--wit);
+    /* !! AANGEPAST: width: 100% toegevoegd !! */
+    width: 100%;
 }
 
 .bookings-container {
@@ -501,7 +507,7 @@ html, body {
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
-    /* !! AANGEPAST: Deze sectie gaat naar de achtergrond !! */
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
     z-index: 1; 
     scroll-margin-top: 70px; 
     /* Hoogte verkleind */
@@ -509,6 +515,8 @@ html, body {
     padding-bottom: 150px;
     background-color: var(--zwart); 
     color: var(--wit);
+    /* !! AANGEPAST: width: 100% toegevoegd !! */
+    width: 100%;
 }
 
 .reviews-container {
@@ -516,7 +524,7 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    /* Verhoogd zodat het boven #final-image komt */
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
     z-index: 4; 
 }
 
@@ -629,10 +637,11 @@ html, body {
     position: absolute;
     right: 0;
     bottom: 0; 
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 2; 
     /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 450px) !! */
     width: clamp(550px, 60vw, 800px); 
     height: clamp(550px, 60vw, 800px); 
-    z-index: 1; /* Achter de review-tekst */
     background-image: url('images/ReviewPersoon4.svg');
     background-size: cover;
     background-position: center;
@@ -647,10 +656,12 @@ html, body {
     background-size: cover;
     background-position: center;
     position: relative; 
-    /* !! AANGEPAST: Deze sectie komt nu bovenop 'reviews' !! */
-    z-index: 2; 
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 3; 
     /* !! AANGEPAST: Overlapt nu 150px om Afb 9 te bedekken !! */
     margin-top: -150px;
+    /* !! AANGEPAST: width: 100% toegevoegd !! */
+    width: 100%;
 }
 
 .final-image-link {
