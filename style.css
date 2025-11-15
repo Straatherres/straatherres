@@ -236,7 +236,7 @@ body {
     gap: 20px;
     text-align: left;
     justify-content: flex-start;
-    margin-top: 1rem;
+    /* Wens 2: margin-top: 1rem; VERWIJDERD */
 }
 /* !! AFBEELDING 2: TODO (naast 'ARE') !! */
 .are-image-placeholder {
@@ -263,9 +263,9 @@ body {
     width: 100%;
     z-index: 11;
     transform: translateY(50%); 
-    height: 30px;
+    height: 80px; /* Wens 3: Hoogte aangepast (was 30px) */
     /* Placeholder stijlen verwijderd */
-    background-size: cover; /* Strekt de SVG uit over de 30px hoogte */
+    background-size: 100% 100%; /* Wens 3: Zorgt dat de SVG uitrekt */
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -607,6 +607,17 @@ body {
     overflow: hidden;
 }
 
+/* Wens 4: Nieuwe Instagram Overlay Afbeelding */
+.instagram-overlay-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 300px; /* Pas dit aan indien nodig */
+    height: auto;
+}
+
 
 /* --- @MEDIA QUERY (Mobiele Weergave) --- */
 @media (max-width: 768px) {
@@ -630,6 +641,12 @@ body {
     }
     .hamburger {
         display: flex; 
+    }
+
+    /* Wens 1: Zorgt dat Afbeelding 3 meeschaalt op mobiel */
+    .hero-image-placeholder-left {
+        width: 90vw;
+        height: 90vw;
     }
 
     #home {
