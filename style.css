@@ -2,13 +2,17 @@
 /*
 @font-face {
     font-family: 'Novecento NarrowBold';
-    src: url('fonts/Novecento-Bold.woff2') format('woff2');
+    src: url('fonts/Novecento-Bold.woff2') format('woff2'),
+         url('fonts/Novecento-Bold.woff') format('woff');
     font-weight: 700;
+    font-style: normal;
 }
 @font-face {
     font-family: 'Ballore Grayson';
-    src: url('fonts/BalloreGrayson.woff2') format('woff2');
-    font-weight: 400;
+    src: url('fonts/BalloreGrayson.woff2') format('woff2'),
+         url('fonts/BalloreGrayson.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 */
 
@@ -28,7 +32,6 @@
 }
 
 body {
-    /* Probeert Novecento, anders Montserrat */
     font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
     background-color: var(--wit); 
 }
@@ -39,9 +42,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(15, 8, 0, 0.99); 
+    /* 80% transparant zwart */
+    background-color: rgba(15, 8, 0, 0.8); 
     z-index: 1000;
-    padding: 5px 0; 
+    padding: 5px 0; /* Iets minder hoog */
 }
 .navbar-container {
     width: 90%;
@@ -114,46 +118,47 @@ body {
 /* --- Hero Sectie --- */
 #home {
     position: relative; 
-    z-index: 5; /* Wens 1: Stacking context */
     height: 1200px; 
-    /* Wens 4: Achtergrond naar zwart */
+    /* Achtergrond is nu zwart */
     background-color: var(--zwart); 
-    /* Wens 4: Freepik afbeelding verwijderd */
-    /* background-image: url('...'); */
-    background-size: cover; 
-    background-position: center center; 
     display: flex;
     align-items: flex-start; 
     justify-content: center;
+    overflow: hidden; /* Nodig voor de ::before overlay */
 }
 
-/* !! NIEUW: Spraypaint overlay is weer teruggeplaatst !! */
+/* Nieuwe Spraypaint Overlay */
 #home::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 70%; /* 70% breedte */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%; /* 70% van de breedte */
     height: 100%;
     background-image: url('images/Spraypaint.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.2; /* 20% opacity */
-    z-index: 1; /* Achter de content (10) en video (2) */
+    z-index: 1;
 }
+
 
 /* --- Video Wrapper (Grootte & Positie) --- */
 .video-wrapper {
     position: absolute;
     bottom: 200px;
-    right: calc(4% - 10px);
+    /* 5 pixels naar rechts verplaatst */
+    right: calc(4% - 15px);
+    
     width: 60vw; 
     height: 33.75vw; /* 16:9 ratio */
     min-width: 300px;
     min-height: 168.75px;
     max-width: 800px; 
     max-height: 450px; 
+
     z-index: 2; 
 }
 
@@ -166,8 +171,13 @@ body {
     transform: rotate(1deg); 
     z-index: 1; /* Ligt onder de video */
 }
-.geel-video-blok.blok-1 {}
+
+.geel-video-blok.blok-1 {
+    /* Dit is het standaard blok */
+}
+
 .geel-video-blok.blok-2 {
+    /* Dit blok is iets verschoven */
     transform: translate(15px, 10px) rotate(1deg);
 }
 
@@ -179,22 +189,6 @@ body {
     border: none;
     z-index: 2; /* Ligt boven de gele blokken */
     overflow: hidden;
-    left: 5px; /* Wens 5: 5px naar rechts verplaatst */
-}
-
-/* !! AFBEELDING 3: HERO LINKS (Wens 3: 1.5x groter en linksonder) !! */
-.hero-image-placeholder-left {
-    position: absolute;
-    left: 0; /* Wens 3: Geheel links */
-    bottom: 0; /* Wens 3: Geheel onder */
-    width: clamp(450px, 60vw, 900px); /* Wens 3: 1.5x groter (was 300/40/600) */
-    height: clamp(450px, 60vw, 900px); /* Wens 3: 1.5x groter (was 300/40/600) */
-    z-index: 1; 
-    /* Placeholder stijlen verwijderd */
-    background-image: url('images/BeginstukPersoon1.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 
@@ -205,7 +199,7 @@ body {
     padding-top: 100px; 
     width: 90%; 
     max-width: 1200px; 
-    /* Wens 6: Tekst 30px naar binnen (midden) */
+    /* Tekst 30px naar binnen (midden) */
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -235,21 +229,17 @@ body {
 
 .are-row {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 20px;
-    text-align: left;
-    justify-content: flex-start;
-    /* Wens 2: margin-top: 1rem; VERWIJDERD */
 }
-/* !! AFBEELDING 2: TODO (naast 'ARE') !! */
+
+/* !! AFBEELDING 2: ARE (Naast 'ARE') !! */
 .are-image-placeholder {
-    height: 50px; 
-    min-width: 150px; /* Geef het een basisbreedte */
-    /* Placeholder stijlen verwijderd */
+    width: clamp(100px, 20vw, 200px);
+    height: clamp(50px, 10vw, 100px);
     background-image: url('images/Naamloos-1.svg');
-    background-size: contain; /* 'Contain' is beter voor een SVG-logo */
-    background-position: left center; /* Lijn links uit */
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero-knop.cta-knop {
@@ -257,26 +247,54 @@ body {
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
 }
 
-/* !! AFBEELDING 4, 6, 8: SCHEIDINGSLIJNEN (Basis) !! */
+/* !! AFBEELDING 3: HERO LINKS (1.5x groter) !! */
+.hero-image-placeholder-left {
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    /* 1.5x groter (was 200/30/400) */
+    width: clamp(300px, 45vw, 600px); 
+    height: clamp(300px, 45vw, 600px); 
+    z-index: 1; 
+    background-image: url('images/BeginstukPersoon1.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Overgang (Gescheurd Papier) --- */
 .torn-paper-divider,
 .torn-paper-divider-bottom {
     position: absolute;
-    bottom: 0; 
+    /* Dwingt 100% breedte */
     left: 0;
-    width: 100%;
-    z-index: 11;
-    transform: translateY(50%); 
-    height: 80px; /* Wens 3: Hoogte aangepast (was 30px) */
-    /* Placeholder stijlen verwijderd */
-    background-size: 100% 100%; /* Wens 3: Zorgt dat de SVG uitrekt */
-    background-position: center;
+    right: 0;
+    /* Aangepaste hoogte */
+    height: 80px;
+    z-index: 11; /* Bovenop alles */
+    transform-origin: center center;
     background-repeat: no-repeat;
+    /* Zorgt dat de afbeelding volledig schaalt */
+    background-size: 100% 100%;
 }
 
-/* !! Specifieke paden voor de scheidingslijnen !! */
+/* Positionering voor de bovenste 3 dividers */
+.torn-paper-divider {
+    /* Gecentreerd op de scheidingslijn */
+    bottom: 0;
+    transform: translateY(50%);
+}
+
+/* Positionering voor de onderste 3 dividers */
+.torn-paper-divider-bottom {
+    /* Gecentreerd op de scheidingslijn */
+    bottom: 0;
+    transform: translateY(50%) scale(-1, -1); /* Gespiegeld */
+}
+
+/* Specifieke afbeeldingen voor elke divider */
 #divider-1 {
     /* AFBEELDING 4 */
-    /* Wens 2: Vervangen door Scheur 3 en gespiegeld */
+    /* Vervangen door Scheur 3 en gespiegeld */
     background-image: url('images/Scheur3.svg');
     transform: translateY(50%) scaleX(-1); 
 }
@@ -293,13 +311,13 @@ body {
 /* /* --- About Us Sectie --- 
 */
 #about-us {
-    position: relative; 
-    z-index: 4; /* Wens 1: Stacking context */
+    position: relative; /* Nodig voor de gespiegelde divider */
+    z-index: 2; /* Stapelvolgorde */
     scroll-margin-top: 70px; 
     padding: 100px 0;
     background-color: var(--zwart); 
     color: var(--wit);
-    min-height: 600px; 
+    min-height: 600px; /* Zorgt voor genoeg ruimte */
 }
 
 .about-us-container {
@@ -308,9 +326,10 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0px; 
+    gap: 0px; /* Dichterbij elkaar */
 }
 
+/* 1. Titel */
 .about-us-title {
     flex-basis: 10%; 
     transform: rotate(90deg); 
@@ -321,19 +340,22 @@ body {
 }
 .about-us-title .text-rood {
     color: var(--rood);
-    /* Probeert Ballore, anders Luckiest Guy */
+    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
     font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
 }
 
+/* Zorgt dat de woorden stapelen */
 .about-us-title span {
     display: block; 
     line-height: 1; 
 }
 
 .about-us-title span:first-child {
-    margin-right: 5rem; 
+    /* 'ABOUT' lager gezet */
+    margin-right: 5rem;
 }
 
+/* 2. Tekst (Rechterkolom) */
 .about-us-content {
     flex-basis: 90%; 
     position: relative; 
@@ -343,152 +365,159 @@ body {
     font-family: 'Montserrat', sans-serif; 
     font-size: 1.1rem;
     line-height: 1.7;
+    /* max-width: 800px; Verwijderd, nu breder */
     position: relative; 
     z-index: 2;
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (Wens 4: 1.5x groter) !! */
+/* !! AFBEELDING 5: ABOUT US RECHTS (Verdubbelde grootte) !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* Wens 4: 1.5x groter (was 200/30/400) */
+    /* 1.5x groter (was 200/30/400) */
     width: clamp(300px, 45vw, 600px); 
     height: clamp(300px, 45vw, 600px); 
     z-index: 1; 
-    /* Placeholder stijlen verwijderd */
     background-image: url('images/AboutusPersoon2.svg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
 
 
 /* --- Bookings Sectie --- */
-#bookings {
+#section {
     position: relative; 
-    z-index: 3; /* Wens 1: Stacking context */
-    scroll-margin-top: 20px;
-    background-color: var(--zwart);
-    padding: 65px 0 250px 0; 
+    z-index: 2; 
+}
+
+#bookings {
+    position: relative;
+    z-index: 2;
+    scroll-margin-top: 70px; 
+    /* 50px onder de divider (15px) = 65px */
+    padding-top: 65px; 
+    padding-bottom: 200px;
+    background-color: var(--zwart); 
+    color: var(--wit);
+    overflow: hidden; /* Houdt de rode blokken netjes */
 }
 
 .bookings-container {
     width: 90%;
-    max-width: 600px; 
+    max-width: 600px; /* Formulier smaller gemaakt */
     margin: 0 auto;
-    position: relative;
-    z-index: 10; 
+    text-align: center;
+    position: relative; /* Nodig voor de decor-container */
+    z-index: 5; /* Boven de hoek-afbeelding */
 }
 
+/* Container voor rode blokken (nu binnen .bookings-container) */
 .bookings-decor-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 1; /* Achter het formulier */
 }
 
 .rood-blok {
     position: absolute;
-    background-color: var(--rood);
-    width: 105%; 
+    /* Altijd 5% groter dan de form-wrapper */
+    width: 105%;
     height: 105%;
-    top: -2.5%;
-    left: -2.5%;
+    top: 50%;
+    left: 50%;
+    background-color: var(--rood);
 }
 
 .rood-blok.blok-1 {
-    transform: rotate(1deg);
+    transform: translate(-50%, -50%) rotate(2deg);
 }
-
 .rood-blok.blok-2 {
-    transform: translate(15px, 10px) rotate(1deg);
+    transform: translate(-48%, -52%) rotate(-1deg);
 }
 
-
+/* Titel van Bookings */
 .bookings-container h2 {
+    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
+    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    color: var(--wit); /* Wit */
+    font-weight: 400;
+    /* Groter en schaalbaar */
     font-size: clamp(3rem, 10vw, 5rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: var(--wit); 
-    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif; 
     margin-bottom: 20px;
-    text-align: center;
-    position: relative; 
-    z-index: 2;
 }
 
 .contact-form-wrapper {
     background-color: var(--wit);
-    color: var(--zwart); 
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative; 
+    position: relative; /* Boven de rode blokken */
     z-index: 2;
 }
 
 .form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 5px;
+    color: var(--zwart);
     font-weight: 700;
-    font-size: 0.9rem;
     text-transform: uppercase;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
-    border: 2px solid #ddd;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f0f0f0; /* Lichtgrijs */
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    background-color: #f0f0f0; 
 }
 
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.contact-form-wrapper .cta-knop {
+.form-group button {
     width: 100%;
     padding: 15px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
 }
 
 /* !! AFBEELDING 7: BOOKINGS RECHTS (Verdubbelde grootte) !! */
 .bookings-image-placeholder-right {
     position: absolute;
-    right: 20px;
-    bottom: 20px; 
-    width: clamp(300px, 40vw, 600px); /* Was 150px, 20vw, 300px */
-    height: clamp(300px, 40vw, 600px); /* Was 150px, 20vw, 300px */
-    z-index: 1; 
-    /* Placeholder stijlen verwijderd */
+    right: 0;
+    bottom: 0; 
+    /* 2x groter (was 200/30/400) */
+    width: clamp(400px, 60vw, 800px); 
+    height: clamp(400px, 60vw, 800px); 
+    z-index: 1; /* Achter het formulier */
     background-image: url('images/BookingPersoon3.svg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
+
 
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
-    z-index: 2; /* Wens 1: Stacking context */
+    z-index: 2; /* Blijft op 2 */
     scroll-margin-top: 70px; 
-    background-color: var(--zwart);
-    padding: 100px 0 150px 0; 
-    overflow: hidden; 
+    /* Hoogte verkleind */
+    padding-top: 100px;
+    padding-bottom: 150px;
+    background-color: var(--zwart); 
+    color: var(--wit);
+    overflow: hidden; /* Verbergt de scrollende blokken */
 }
 
 .reviews-container {
@@ -496,86 +525,85 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    /* Verhoogd zodat het boven #final-image komt */
+    z-index: 4; 
 }
 
 .reviews-container h2 {
-    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
-    color: var(--wit);
     font-size: clamp(3rem, 10vw, 5rem);
     font-weight: 900;
     text-transform: uppercase;
-    text-align: left; 
-    margin-bottom: 20px; 
-    position: relative;
-    z-index: 10;
+    text-align: left;
+    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
+    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    color: var(--wit);
+    margin-bottom: 20px;
 }
 
+/* Nieuw introductie tekstblok */
 .review-intro-text {
     font-family: 'Montserrat', sans-serif;
-    color: var(--wit);
     font-size: 1.1rem;
     line-height: 1.6;
-    max-width: 600px; 
-    margin-bottom: 40px; 
+    max-width: 600px; /* Alleen aan de linkerkant */
+    margin-bottom: 50px;
     text-align: left;
-    position: relative;
-    z-index: 10;
+    color: var(--wit);
 }
 
 .review-ticker-wrapper {
-    width: 100%;
+    width: 100vw; /* Volledige breedte */
+    margin-left: -4.5vw; /* Compenseer de 90% container */
     overflow: hidden;
-    position: relative;
-    z-index: 10; 
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    margin-bottom: 30px; 
+    margin-bottom: 20px;
 }
 
 .review-ticker-track {
+    /* 12 blokken (6 + 6 kopie) * 450px breed */
+    width: calc(12 * 450px);
     display: flex;
-    width: calc((400px + 30px) * 12); 
+    /* Snelheid verlaagd (was 40s) */
     animation: ticker 80s linear infinite; 
 }
 
 .review-ticker-track.reverse {
+    /* Animatie opgelost */
     animation: ticker-reverse 80s linear infinite;
 }
 
 .review-blok {
+    width: 420px; /* Breedte van een enkel blok */
+    margin: 0 15px;
+    padding: 20px;
     background-color: var(--rood);
-    border: 10px solid var(--wit);
-    color: var(--wit);
-    padding: 25px;
+    /* Rand dikker gemaakt */
+    border: 5px solid var(--wit);
     border-radius: 10px;
-    margin-right: 30px; 
-    width: 400px; 
-    flex-shrink: 0; 
+    color: var(--wit);
+    font-family: 'Montserrat', sans-serif;
 }
-
 .review-blok p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.review-blok span {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5;
     font-style: italic;
+    margin-bottom: 10px;
+}
+.review-blok span {
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
+/* Keyframes voor de animatie */
 @keyframes ticker {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-50%); /* Beweegt met 50% (de lengte van 6 blokken) */
     }
 }
 
-/* Wens 7: Ontbrekende animatie voor 'reverse' rij toegevoegd */
+/* Ontbrekende animatie voor 'reverse' rij toegevoegd */
 @keyframes ticker-reverse {
     0% {
         transform: translateX(-50%);
@@ -589,50 +617,47 @@ body {
 .review-photo-placeholder {
     position: absolute;
     right: 0;
-    bottom: 0;
-    width: clamp(400px, 60vw, 800px); /* Was 200px, 30vw, 400px */
-    height: clamp(400px, 60vw, 800px); /* Was 200px, 30vw, 400px */
-    z-index: 1; 
-    /* Placeholder stijlen verwijderd */
+    bottom: 0; 
+    /* 2x groter (was 200/30/400) */
+    width: clamp(400px, 60vw, 800px); 
+    height: clamp(400px, 60vw, 800px); 
+    z-index: 1; /* Achter de review-tekst */
     background-image: url('images/ReviewPersoon4.svg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
+
 
 /* --- Laatste Afbeelding Sectie --- */
 /* !! AFBEELDING 10: STATISCH (ONDER) !! */
 #final-image {
-    height: 500px;
-    width: 100%;
+    height: 500px; 
     background-image: url('images/Scheur4.svg');
     background-size: cover;
     background-position: center;
     position: relative; 
-    z-index: 1; /* Wens 1: Stacking context */
-    /* Wens 5: 30px omhoog (overlappen) */
+    /* Verhoogd naar 3 (tussen de review-afbeelding en de review-tekst) */
+    z-index: 3; 
+    /* 30px omhoog (overlappen) */
     margin-top: -30px;
 }
 
 .final-image-link {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
-    text-indent: -9999px;
+    position: relative;
     overflow: hidden;
 }
 
-/* Wens 4: Nieuwe Instagram Overlay Afbeelding */
+/* Instagram Overlay Afbeelding */
 .instagram-overlay-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    /* Wens 1: Aangepast naar 100% breedte met een max */
+    /* 100% breedte met een max */
     width: 100%; 
     max-width: 600px;
     height: auto;
@@ -642,10 +667,11 @@ body {
 /* --- @MEDIA QUERY (Mobiele Weergave) --- */
 @media (max-width: 768px) {
     
+    /* --- Navigatiebalk Mobiel --- */
     .nav-links {
         display: none; 
         position: absolute;
-        top: 59px; 
+        top: 60px; /* Aangepast aan lagere nav-balk */
         right: 0;
         width: 100%;
         background-color: var(--zwart); 
@@ -663,17 +689,14 @@ body {
         display: flex; 
     }
 
-    /* Wens 1: Zorgt dat Afbeelding 3 meeschaalt op mobiel */
-    .hero-image-placeholder-left {
-        width: 90vw;
-        height: 90vw;
-    }
-
+    /* --- Hero Sectie Mobiel --- */
     #home {
         height: 800px; 
     }
     .hero-content {
         padding-top: 80px; 
+        padding-left: 0; /* Reset padding */
+        padding-right: 0;
     }
     .hero-title .align-left,
     .hero-title .align-right {
@@ -684,22 +707,22 @@ body {
         align-items: center; 
         gap: 10px;
     }
-    
     .are-row {
         justify-content: center;
-        flex-direction: column;
-        gap: 10px;
     }
     
-    .are-image-placeholder {
-        background-position: center; /* Zorg dat het SVG-logo gecentreerd is */
-        min-width: 100px;
-    }
-
     .hero-knop.cta-knop {
-        display: none; 
+        display: none; /* Knop verborgen op mobiel */
+    }
+    
+    /* Afbeelding 3 (Mobiel) */
+    .hero-image-placeholder-left {
+        /* Zorgt dat het meeschaalt en niet overloopt */
+        width: 80vw;
+        height: 80vw;
     }
 
+    /* --- Video Wrapper Mobiel (Gecentreerd) --- */
     .video-wrapper {
         right: auto;
         left: 50%;
@@ -711,19 +734,20 @@ body {
         transform: translate(10px, 5px) rotate(1deg);
     }
 
+    /* --- About Us Mobiel --- */
     .about-us-container {
-        flex-direction: column; 
+        flex-direction: column; /* Stapel de kolommen */
         gap: 20px;
     }
     .about-us-title {
+        /* Terug naar horizontaal op mobiel, 0 graden rotatie */
         transform: rotate(0deg); 
         flex-basis: auto;
         text-align: center;
-        font-size: 3.5rem; 
+        font-size: 3.5rem; /* Iets kleiner op mobiel */
     }
-    
     .about-us-title span:first-child {
-        margin-right: 0; 
+        margin-right: 0; /* Reset marge */
     }
     
     .about-us-content {
@@ -732,36 +756,48 @@ body {
     }
     .about-us-content p {
         font-size: 1rem;
-        max-width: 100%; 
+        max-width: 100%; /* Volle breedte */
     }
     
-    #bookings {
-        padding: 100px 0; 
-    }
-    
-    .contact-form-wrapper {
-        padding: 20px; 
-    }
-    
-    #reviews {
-        padding: 100px 0 100px 0;
+    /* Afbeelding 5 (Mobiel) */
+    .about-us-image-placeholder {
+        /* Blijft nu rechtsonder, schaalt mee */
     }
 
-    .reviews-container h2 {
-        text-align: center; 
+    /* --- Bookings Mobiel --- */
+    #bookings {
+        padding-top: 65px;
+        padding-bottom: 150px;
     }
     
+    /* --- Reviews Mobiel --- */
+    #reviews {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
     .review-intro-text {
         text-align: center;
         font-size: 1rem;
     }
-    
+    .review-ticker-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+    .review-ticker-track {
+        /* 12 blokken * 300px breed */
+        width: calc(12 * 300px);
+    }
     .review-blok {
-        width: 300px; 
-        padding: 20px;
+        width: 280px; /* Smaller op mobiel */
     }
     
-    .review-ticker-track {
-        width: calc((300px + 30px) * 12);
+    /* Afbeelding 9 (Mobiel) */
+    .review-photo-placeholder {
+        /* Blijft nu rechtsonder, schaalt mee */
+    }
+    
+    /* --- Laatste Afbeelding Mobiel --- */
+    #final-image {
+        height: 300px;
     }
 }
