@@ -1,21 +1,3 @@
-/* --- VOEG HIER JE CUSTOM FONT-BESTANDEN TOE --- */
-/*
-@font-face {
-    font-family: 'Novecento NarrowBold';
-    src: url('fonts/Novecento-Bold.woff2') format('woff2'),
-         url('fonts/Novecento-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Ballore Grayson';
-    src: url('fonts/BalloreGrayson.woff2') format('woff2'),
-         url('fonts/BalloreGrayson.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-*/
-
 /* Basis reset en thema-kleuren */
 :root {
     --rood: #CF3026; 
@@ -32,7 +14,7 @@
 }
 
 body {
-    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--wit); 
 }
 
@@ -87,7 +69,7 @@ body {
     color: var(--wit) !important; 
     border-radius: 50px; 
     transition: background-color 0.3s ease, transform 0.3s ease;
-    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -206,7 +188,7 @@ body {
 
 .hero-title {
     font-size: clamp(3rem, 10vw, 9rem);
-    font-family: 'Novecento NarrowBold', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 900; 
     text-transform: uppercase;
     line-height: 0.95; 
@@ -340,8 +322,8 @@ body {
 }
 .about-us-title .text-rood {
     color: var(--rood);
-    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
-    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    /* Gebruik nu Wendy One */
+    font-family: 'Wendy One', sans-serif;
 }
 
 /* Zorgt dat de woorden stapelen */
@@ -438,8 +420,8 @@ body {
 
 /* Titel van Bookings */
 .bookings-container h2 {
-    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
-    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    /* Gebruik nu Wendy One */
+    font-family: 'Wendy One', sans-serif;
     color: var(--wit); /* Wit */
     font-weight: 400;
     /* Groter en schaalbaar */
@@ -529,8 +511,8 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     text-align: left;
-    /* Gebruik Ballore Grayson, val terug op Luckiest Guy */
-    font-family: 'Ballore Grayson', 'Luckiest Guy', sans-serif;
+    /* Gebruik nu Wendy One */
+    font-family: 'Wendy One', sans-serif;
     color: var(--wit);
     margin-bottom: 20px;
 }
@@ -645,17 +627,46 @@ body {
     overflow: hidden;
 }
 
-/* Instagram Overlay Afbeelding */
-.instagram-overlay-img {
+/* Nieuwe Instagram Tekst Styling (Vervangt .instagram-overlay-img) */
+.instagram-text-wrapper {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* Start links */
+    left: 10%; 
+    transform: translateY(-50%); /* Alleen verticaal centreren */
     z-index: 10;
-    /* 100% breedte met een max */
-    width: 100%; 
-    max-width: 600px;
-    height: auto;
+    color: var(--zwart); 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; 
+    text-align: left; /* Links uitlijnen */
+    width: auto; /* Laat de breedte door de inhoud bepalen */
+    /* Optioneel: max-width als je niet te ver naar rechts wilt */
+    /* max-width: 80%; */ 
+}
+
+.insta-line-1 {
+    font-size: clamp(2rem, 6vw, 4rem); 
+    line-height: 1.1;
+}
+
+.insta-line-2 {
+    /* Nu als een blok-element om op een nieuwe regel te staan */
+    display: block; 
+    line-height: 1.1;
+    margin-top: 5px; /* Beetje ruimte tussen de regels */
+}
+
+.insta-on {
+    font-size: clamp(2rem, 6vw, 4rem); 
+    display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
+    margin-right: 0.5em; /* Ruimte tussen 'ON' en 'INSTAGRAM' */
+}
+
+.insta-brand {
+    font-family: 'Wendy One', sans-serif; 
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Groter dan de rest */
+    font-weight: 400; 
+    display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
 }
 
 
@@ -666,7 +677,7 @@ body {
     .nav-links {
         display: none; 
         position: absolute;
-        top: 60px; /* Aangepast aan lagere nav-balk */
+        top: 60px; 
         right: 0;
         width: 100%;
         background-color: var(--zwart); 
@@ -690,7 +701,7 @@ body {
     }
     .hero-content {
         padding-top: 80px; 
-        padding-left: 0; /* Reset padding */
+        padding-left: 0; 
         padding-right: 0;
     }
     .hero-title .align-left,
@@ -707,12 +718,11 @@ body {
     }
     
     .hero-knop.cta-knop {
-        display: none; /* Knop verborgen op mobiel */
+        display: none; 
     }
     
     /* Afbeelding 3 (Mobiel) */
     .hero-image-placeholder-left {
-        /* Zorgt dat het meeschaalt en niet overloopt */
         width: 80vw;
         height: 80vw;
     }
@@ -731,18 +741,17 @@ body {
 
     /* --- About Us Mobiel --- */
     .about-us-container {
-        flex-direction: column; /* Stapel de kolommen */
+        flex-direction: column; 
         gap: 20px;
     }
     .about-us-title {
-        /* Terug naar horizontaal op mobiel, 0 graden rotatie */
         transform: rotate(0deg); 
         flex-basis: auto;
         text-align: center;
-        font-size: 3.5rem; /* Iets kleiner op mobiel */
+        font-size: 3.5rem; 
     }
     .about-us-title span:first-child {
-        margin-right: 0; /* Reset marge */
+        margin-right: 0; 
     }
     
     .about-us-content {
@@ -751,12 +760,11 @@ body {
     }
     .about-us-content p {
         font-size: 1rem;
-        max-width: 100%; /* Volle breedte */
+        max-width: 100%; 
     }
     
     /* Afbeelding 5 (Mobiel) */
     .about-us-image-placeholder {
-        /* Blijft nu rechtsonder, schaalt mee */
     }
 
     /* --- Bookings Mobiel --- */
@@ -779,20 +787,29 @@ body {
         width: 100%;
     }
     .review-ticker-track {
-        /* 12 blokken * 300px breed */
         width: calc(12 * 300px);
     }
     .review-blok {
-        width: 280px; /* Smaller op mobiel */
+        width: 280px; 
     }
     
     /* Afbeelding 9 (Mobiel) */
     .review-photo-placeholder {
-        /* Blijft nu rechtsonder, schaalt mee */
     }
     
     /* --- Laatste Afbeelding Mobiel --- */
     #final-image {
         height: 300px;
+    }
+
+    /* Instagram tekst op mobiel */
+    .instagram-text-wrapper {
+        left: 50%; /* Centreer op mobiel */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .insta-line-2 {
+        display: flex; /* Terug naar flex om 'ON' en 'INSTAGRAM' naast elkaar te houden */
+        justify-content: center;
     }
 }
