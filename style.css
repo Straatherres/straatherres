@@ -14,10 +14,11 @@
     box-sizing: border-box;
 }
 
-body {
+/* !! AANGEPAST: overflow-x: hidden; geldt nu voor html én body !! */
+html, body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--wit); 
-    overflow-x: hidden; /* !! NIEUW: Voorkomt horizontaal scrollen door de grote afbeeldingen !! */
+    overflow-x: hidden; /* Voorkomt horizontaal scrollen */
 }
 
 /* --- Navigatiebalk Styling --- */
@@ -108,7 +109,6 @@ body {
     display: flex;
     align-items: flex-start; 
     justify-content: center;
-    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
     /* !! AANGEPAST: z-index toegevoegd voor stapelvolgorde !! */
     z-index: 5; 
 }
@@ -120,13 +120,13 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%; /* 70% van de breedte */
+    width: 70%; /* 70% van de breedte */
     height: 100%;
     background-image: url('images/Spraypaint.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1; /* 10% opacity */
+    opacity: 0.1; /* 20% opacity */
     z-index: 1;
 }
 
@@ -233,14 +233,14 @@ body {
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
 }
 
-/* !! AFBEELDING 3: HERO LINKS (1.5x groter) !! */
+/* !! AFBEELDING 3: HERO LINKS (PERSOON 1) !! */
 .hero-image-placeholder-left {
     position: absolute;
     left: 0;
     bottom: 0; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 300px) !! */
-    width: clamp(350px, 45vw, 800px); 
-    height: clamp(350px, 45vw, 800px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 350px) !! */
+    width: clamp(450px, 45vw, 800px); 
+    height: clamp(450px, 45vw, 800px); 
     z-index: 1; 
     background-image: url('images/BeginstukPersoon1.svg');
     background-size: cover;
@@ -251,14 +251,9 @@ body {
 .torn-paper-divider,
 .torn-paper-divider-bottom {
     position: absolute;
-    /* !! AANGEPAST: Dit is de nieuwe, robuuste methode !! */
-    width: 100vw; /* 100% van de SCHERM-breedte */
-    left: 50%; /* Centreer het blok */
-    margin-left: -50vw; /* Trek het terug naar de linkerrand */
-
-    /* !! VERWIJDERD: Deze regels zijn vervangen !! */
-    /* left: 0; */
-    /* right: 0; */
+    /* !! AANGEPAST: Robuustere methode voor volledige breedte !! */
+    left: 0;
+    right: 0;
     
     /* Aangepaste hoogte */
     height: 80px;
@@ -364,7 +359,7 @@ body {
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (Grootte aangepast) !! */
+/* !! AFBEELDING 5: ABOUT US RECHTS (PERSOON 2) !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
@@ -374,8 +369,10 @@ body {
     height: clamp(350px, 45vw, 500px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
-    background-size: cover;
-    background-position: center;
+    /* !! AANGEPAST: 'cover' naar 'contain' !! */
+    background-size: contain;
+    background-position: bottom right; /* Zorgt dat het netjes in de hoek zit */
+    background-repeat: no-repeat;
 }
 
 
@@ -390,7 +387,6 @@ body {
     padding-bottom: 200px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
 }
 
 .bookings-container {
@@ -440,7 +436,7 @@ body {
     font-size: clamp(3rem, 10vw, 5rem);
     margin-bottom: 20px;
     
-    /* !! NIEUWE REGELS OM DE TITEL VOORAAN TE KRIJGEN !! */
+    /* !! AANGEPAST: Nu zichtbaar !! */
     position: relative;
     z-index: 3; /* Hoger dan het formulier (2) en de blokken (1) */
 }
@@ -485,7 +481,7 @@ body {
     cursor: pointer;
 }
 
-/* !! AFBEELDING 7: BOOKINGS RECHTS (Verdubbelde grootte) !! */
+/* !! AFBEELDING 7: BOOKINGS RECHTS (PERSOON 3) !! */
 .bookings-image-placeholder-right {
     position: absolute;
     right: 0;
@@ -495,8 +491,10 @@ body {
     height: clamp(450px, 60vw, 600px); 
     z-index: 1; /* Achter het formulier */
     background-image: url('images/BookingPersoon3.svg');
-    background-size: cover;
-    background-position: center;
+    /* !! AANGEPAST: 'cover' naar 'contain' !! */
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
 }
 
 
@@ -511,7 +509,6 @@ body {
     padding-bottom: 150px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! VERWIJDERD: overflow: hidden; was hier de boosdoener !! */
 }
 
 .reviews-container {
@@ -547,38 +544,29 @@ body {
 
 .review-ticker-wrapper {
     width: 100%; /* !! AANGEPAST: was 100vw !! */
-    /* !! VERWIJDERD: Deze complexe berekening is niet meer nodig !! */
-    /* margin-left: -4.5vw; */
     overflow: hidden;
     margin-bottom: 20px;
-    position: relative; /* !! NIEUW: Nodig voor de fade-effecten !! */
+    position: relative; 
+    
+    /* !! AANGEPAST: Fade-effect is nu een 'mask' i.p.v. een zwarte laag !! */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%, /* Start de fade-in */
+        black 90%, /* Eindig de fade-out */
+        transparent 100%
+    );
+    /* Voor Webkit-browsers (Safari) */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%, 
+        black 90%, 
+        transparent 100%
+    );
 }
 
-/* !! NIEUW: Fade-effecten (de 'vage rand') !! */
-.review-ticker-wrapper::before,
-.review-ticker-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100px; /* Breedte van de fade */
-    z-index: 2; /* Ligt bovenop de track */
-    pointer-events: none; /* Zorgt dat je niet kunt klikken op de fade */
-}
-
-.review-ticker-wrapper::before {
-    left: 0;
-    /* Fade van de achtergrondkleur naar transparant */
-    /* !! AANGEPAST: 'rgba' vervangen door 'transparent' !! */
-    background: linear-gradient(to right, var(--zwart) 0%, transparent 100%);
-}
-
-.review-ticker-wrapper::after {
-    right: 0;
-    /* Fade van transparant naar de achtergrondkleur */
-    /* !! AANGEPAST: 'rgba' vervangen door 'transparent' !! */
-    background: linear-gradient(to left, var(--zwart) 0%, transparent 100%);
-}
+/* !! VERWIJDERD: De ::before en ::after fades zijn niet meer nodig !! */
 
 
 .review-ticker-track {
@@ -636,14 +624,14 @@ body {
     }
 }
 
-/* !! AFBEELDING 9: REVIEWS RECHTS (Verdubbelde grootte) !! */
+/* !! AFBEELDING 9: REVIEWS RECHTS (PERSOON 4) !! */
 .review-photo-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 400px) !! */
-    width: clamp(450px, 60vw, 800px); 
-    height: clamp(450px, 60vw, 800px); 
+    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 450px) !! */
+    width: clamp(550px, 60vw, 800px); 
+    height: clamp(550px, 60vw, 800px); 
     z-index: 1; /* Achter de review-tekst */
     background-image: url('images/ReviewPersoon4.svg');
     background-size: cover;
@@ -661,8 +649,8 @@ body {
     position: relative; 
     /* !! AANGEPAST: Deze sectie komt nu bovenop 'reviews' !! */
     z-index: 2; 
-    /* 30px omhoog (overlappen) */
-    margin-top: -30px;
+    /* !! AANGEPAST: Overlapt nu 150px om Afb 9 te bedekken !! */
+    margin-top: -150px;
 }
 
 .final-image-link {
@@ -715,13 +703,8 @@ body {
     display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
 }
 
-/* !! NIEUW: Footer voor de zwarte achtergrond onder de laatste scheur !! */
-.footer-background {
-    background-color: var(--zwart);
-    height: 100px; /* Een beetje hoogte om de zwarte kleur te tonen */
-    position: relative;
-    z-index: 1; /* Onder de #final-image */
-}
+/* !! AANGEPAST: Deze footer is niet meer nodig door de z-index aanpassingen */
+/* .footer-background { ... } */
 
 
 /* --- @MEDIA QUERY (Mobiele Weergave) --- */
@@ -775,12 +758,8 @@ body {
         display: none; 
     }
     
-    /* !! VERWIJDERD: Deze regel zorgde voor extra krimp !! */
-    /* .hero-image-placeholder-left {
-        width: 80vw;
-        height: 80vw;
-    }
-    */
+    /* Afbeelding 3 (Mobiel) */
+    /* De standaard 'clamp' regelt dit nu */
 
     /* --- Video Wrapper Mobiel (Gecentreerd) --- */
     .video-wrapper {
@@ -840,6 +819,9 @@ body {
     .review-ticker-wrapper {
         margin-left: 0;
         width: 100%;
+        /* Fade-effect voor mobiel (minder breed) */
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     .review-ticker-track {
         width: calc(12 * 300px);
@@ -868,13 +850,3 @@ body {
         justify-content: center;
     }
 }
-```
-
-Om dit te laten werken, moet je ook een kleine wijziging aanbrengen in je **`index.html`**-bestand:
-
-1.  Zoek de `#final-image` sectie.
-2.  **Voeg direct na de `</section>`-tag van `#final-image` deze nieuwe `<footer>` sectie toe:**
-
-    ```html
-    <footer class="footer-background">
-        <!-- Hier kun je eventueel later footer content toevoegen, of het leeg laten --></footer>
