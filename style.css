@@ -107,7 +107,9 @@ body {
     display: flex;
     align-items: flex-start; 
     justify-content: center;
-    overflow: hidden; /* Nodig voor de ::before overlay */
+    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
+    /* !! AANGEPAST: z-index toegevoegd voor stapelvolgorde !! */
+    z-index: 5; 
 }
 
 /* Nieuwe Spraypaint Overlay */
@@ -295,7 +297,8 @@ body {
 */
 #about-us {
     position: relative; /* Nodig voor de gespiegelde divider */
-    z-index: 2; /* Stapelvolgorde */
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 4; 
     scroll-margin-top: 70px; 
     padding: 100px 0;
     background-color: var(--zwart); 
@@ -354,14 +357,14 @@ body {
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (1.5x groter) !! */
+/* !! AFBEELDING 5: ABOUT US RECHTS (Grootte aangepast) !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* 1.5x groter (was 300/45/600) */
-    width: clamp(450px, 67.5vw, 900px); 
-    height: clamp(450px, 67.5vw, 900px); 
+    /* !! AANGEPAST: Grootte teruggezet !! */
+    width: clamp(300px, 45vw, 600px); 
+    height: clamp(300px, 45vw, 600px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
     background-size: cover;
@@ -372,14 +375,15 @@ body {
 /* --- Bookings Sectie --- */
 #bookings {
     position: relative;
-    z-index: 2;
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 3;
     scroll-margin-top: 70px; 
     /* 50px onder de divider (15px) = 65px */
     padding-top: 65px; 
     padding-bottom: 200px;
     background-color: var(--zwart); 
     color: var(--wit);
-    overflow: hidden; /* Houdt de rode blokken netjes */
+    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
 }
 
 .bookings-container {
@@ -488,14 +492,15 @@ body {
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
-    z-index: 2; /* Blijft op 2 */
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 2; 
     scroll-margin-top: 70px; 
     /* Hoogte verkleind */
     padding-top: 100px;
     padding-bottom: 150px;
     background-color: var(--zwart); 
     color: var(--wit);
-    overflow: hidden; /* Verbergt de scrollende blokken */
+    /* !! AANGEPAST: overflow: hidden; verwijderd voor de scheur !! */
 }
 
 .reviews-container {
@@ -534,7 +539,33 @@ body {
     margin-left: -4.5vw; /* Compenseer de 90% container */
     overflow: hidden;
     margin-bottom: 20px;
+    position: relative; /* !! NIEUW: Nodig voor de fade-effecten !! */
 }
+
+/* !! NIEUW: Fade-effecten (de 'vage rand') !! */
+.review-ticker-wrapper::before,
+.review-ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* Breedte van de fade */
+    z-index: 2; /* Ligt bovenop de track */
+    pointer-events: none; /* Zorgt dat je niet kunt klikken op de fade */
+}
+
+.review-ticker-wrapper::before {
+    left: 0;
+    /* Fade van de achtergrondkleur naar transparant */
+    background: linear-gradient(to right, var(--zwart) 0%, rgba(15, 8, 0, 0) 100%);
+}
+
+.review-ticker-wrapper::after {
+    right: 0;
+    /* Fade van transparant naar de achtergrondkleur */
+    background: linear-gradient(to left, var(--zwart) 0%, rgba(15, 8, 0, 0) 100%);
+}
+
 
 .review-ticker-track {
     /* 12 blokken (6 + 6 kopie) * 450px breed */
@@ -614,8 +645,8 @@ body {
     background-size: cover;
     background-position: center;
     position: relative; 
-    /* Verhoogd naar 3 (tussen de review-afbeelding en de review-tekst) */
-    z-index: 3; 
+    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    z-index: 1; 
     /* 30px omhoog (overlappen) */
     margin-top: -30px;
 }
