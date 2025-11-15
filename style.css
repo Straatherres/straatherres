@@ -205,6 +205,9 @@ body {
     padding-top: 100px; 
     width: 90%; 
     max-width: 1200px; 
+    /* Wens 6: Tekst 30px naar binnen (midden) */
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .hero-title {
@@ -273,7 +276,9 @@ body {
 /* !! Specifieke paden voor de scheidingslijnen !! */
 #divider-1 {
     /* AFBEELDING 4 */
-    background-image: url('images/Scheur1.svg');
+    /* Wens 2: Vervangen door Scheur 3 en gespiegeld */
+    background-image: url('images/Scheur3.svg');
+    transform: translateY(50%) scaleX(-1); 
 }
 #divider-2 {
     /* AFBEELDING 6 */
@@ -343,13 +348,14 @@ body {
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (Verdubbelde grootte) !! */
+/* !! AFBEELDING 5: ABOUT US RECHTS (Wens 4: 1.5x groter) !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
-    width: clamp(200px, 30vw, 400px); /* Was 100px, 15vw, 200px */
-    height: clamp(200px, 30vw, 400px); /* Was 100px, 15vw, 200px */
+    /* Wens 4: 1.5x groter (was 200/30/400) */
+    width: clamp(300px, 45vw, 600px); 
+    height: clamp(300px, 45vw, 600px); 
     z-index: 1; 
     /* Placeholder stijlen verwijderd */
     background-image: url('images/AboutusPersoon2.svg');
@@ -569,6 +575,16 @@ body {
     }
 }
 
+/* Wens 7: Ontbrekende animatie voor 'reverse' rij toegevoegd */
+@keyframes ticker-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 /* !! AFBEELDING 9: REVIEWS RECHTS (Verdubbelde grootte) !! */
 .review-photo-placeholder {
     position: absolute;
@@ -594,6 +610,8 @@ body {
     background-position: center;
     position: relative; 
     z-index: 1; /* Wens 1: Stacking context */
+    /* Wens 5: 30px omhoog (overlappen) */
+    margin-top: -30px;
 }
 
 .final-image-link {
@@ -614,7 +632,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    width: 300px; /* Pas dit aan indien nodig */
+    /* Wens 1: Aangepast naar 100% breedte met een max */
+    width: 100%; 
+    max-width: 600px;
     height: auto;
 }
 
