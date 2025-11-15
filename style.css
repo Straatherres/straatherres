@@ -237,9 +237,9 @@ body {
     position: absolute;
     left: 0;
     bottom: 0; 
-    /* 1.5x groter (was 200/30/400) */
-    width: clamp(300px, 45vw, 600px); 
-    height: clamp(300px, 45vw, 600px); 
+    /* !! AANGEPAST: MAX-GROOTTE VERHOOGD !! */
+    width: clamp(300px, 45vw, 800px); 
+    height: clamp(300px, 45vw, 800px); 
     z-index: 1; 
     background-image: url('images/BeginstukPersoon1.svg');
     background-size: cover;
@@ -362,9 +362,9 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* !! AANGEPAST: Grootte teruggezet !! */
-    width: clamp(300px, 45vw, 600px); 
-    height: clamp(300px, 45vw, 600px); 
+    /* !! AANGEPAST: MAX-GROOTTE VERLAAGD !! */
+    width: clamp(300px, 45vw, 500px); 
+    height: clamp(300px, 45vw, 500px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
     background-size: cover;
@@ -483,9 +483,9 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* 2x groter (was 200/30/400) */
-    width: clamp(400px, 60vw, 800px); 
-    height: clamp(400px, 60vw, 800px); 
+    /* !! AANGEPAST: MAX-GROOTTE VERLAAGD !! */
+    width: clamp(400px, 60vw, 600px); 
+    height: clamp(400px, 60vw, 600px); 
     z-index: 1; /* Achter het formulier */
     background-image: url('images/BookingPersoon3.svg');
     background-size: cover;
@@ -539,8 +539,9 @@ body {
 }
 
 .review-ticker-wrapper {
-    width: 100vw; /* Volledige breedte */
-    margin-left: -4.5vw; /* Compenseer de 90% container */
+    width: 100%; /* !! AANGEPAST: was 100vw !! */
+    /* !! VERWIJDERD: Deze complexe berekening is niet meer nodig !! */
+    /* margin-left: -4.5vw; */
     overflow: hidden;
     margin-bottom: 20px;
     position: relative; /* !! NIEUW: Nodig voor de fade-effecten !! */
