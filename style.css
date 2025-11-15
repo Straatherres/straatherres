@@ -114,10 +114,12 @@ body {
 /* --- Hero Sectie --- */
 #home {
     position: relative; 
+    z-index: 5; /* Wens 1: Stacking context */
     height: 1200px; 
-    background-color: #333; 
-    /* AFBEELDING 0 (ACHTERGROND) - Niet gewijzigd */
-    background-image: url('https://img.freepik.com/premium-vector/dark-black-abstract-flat-urban-street-art-graffiti-style-vector-illustration-template-background-art_214056-1247.jpg');
+    /* Wens 4: Achtergrond naar zwart */
+    background-color: var(--zwart); 
+    /* Wens 4: Freepik afbeelding verwijderd */
+    /* background-image: url('...'); */
     background-size: cover; 
     background-position: center center; 
     display: flex;
@@ -125,7 +127,7 @@ body {
     justify-content: center;
 }
 
-/* !! NIEUW: Wens 2 - Spraypaint overlay !! */
+/* !! NIEUW: Spraypaint overlay is weer teruggeplaatst !! */
 #home::before {
     content: '';
     position: absolute;
@@ -177,15 +179,16 @@ body {
     border: none;
     z-index: 2; /* Ligt boven de gele blokken */
     overflow: hidden;
+    left: 5px; /* Wens 5: 5px naar rechts verplaatst */
 }
 
-/* !! AFBEELDING 3: HERO LINKS (Verdubbelde grootte) !! */
+/* !! AFBEELDING 3: HERO LINKS (Wens 3: 1.5x groter en linksonder) !! */
 .hero-image-placeholder-left {
     position: absolute;
-    left: 20px;
-    bottom: 20px; 
-    width: clamp(300px, 40vw, 600px); /* Was 150px, 20vw, 300px */
-    height: clamp(300px, 40vw, 600px); /* Was 150px, 20vw, 300px */
+    left: 0; /* Wens 3: Geheel links */
+    bottom: 0; /* Wens 3: Geheel onder */
+    width: clamp(450px, 60vw, 900px); /* Wens 3: 1.5x groter (was 300/40/600) */
+    height: clamp(450px, 60vw, 900px); /* Wens 3: 1.5x groter (was 300/40/600) */
     z-index: 1; 
     /* Placeholder stijlen verwijderd */
     background-image: url('images/BeginstukPersoon1.svg');
@@ -286,6 +289,7 @@ body {
 */
 #about-us {
     position: relative; 
+    z-index: 4; /* Wens 1: Stacking context */
     scroll-margin-top: 70px; 
     padding: 100px 0;
     background-color: var(--zwart); 
@@ -358,6 +362,7 @@ body {
 /* --- Bookings Sectie --- */
 #bookings {
     position: relative; 
+    z-index: 3; /* Wens 1: Stacking context */
     scroll-margin-top: 20px;
     background-color: var(--zwart);
     padding: 65px 0 250px 0; 
@@ -473,6 +478,7 @@ body {
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
+    z-index: 2; /* Wens 1: Stacking context */
     scroll-margin-top: 70px; 
     background-color: var(--zwart);
     padding: 100px 0 150px 0; 
@@ -587,6 +593,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative; 
+    z-index: 1; /* Wens 1: Stacking context */
 }
 
 .final-image-link {
