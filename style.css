@@ -371,14 +371,14 @@ body {
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (Verdubbelde grootte) !! */
+/* !! AFBEELDING 5: ABOUT US RECHTS (1.5x groter) !! */
 .about-us-image-placeholder {
     position: absolute;
     right: 0;
     bottom: 0; 
-    /* 1.5x groter (was 200/30/400) */
-    width: clamp(300px, 45vw, 600px); 
-    height: clamp(300px, 45vw, 600px); 
+    /* 1.5x groter (was 300/45/600) */
+    width: clamp(450px, 67.5vw, 900px); 
+    height: clamp(450px, 67.5vw, 900px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
     background-size: cover;
@@ -387,11 +387,6 @@ body {
 
 
 /* --- Bookings Sectie --- */
-#section {
-    position: relative; 
-    z-index: 2; 
-}
-
 #bookings {
     position: relative;
     z-index: 2;
