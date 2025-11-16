@@ -5,173 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Straatherres</title>
     
+    <!-- Meta beschrijving voor Google -->
     <meta name="description" content="Straatherres is dé energieke band uit Utrecht die straten omtovert tot een spontaan feest. Ervaar de magie! Nu te boeken voor festivals, bruiloften & feesten.">
     
+    <!-- Importeer de lettertypes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Wendy+One&display=swap" rel="stylesheet">
 
+    <!-- Link naar het CSS-bestand -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Navigatiebalk -->
     <nav class="navbar">
         <div class="navbar-container">
             
+            <!-- AFBEELDING 1: LOGO -->
             <a href="#home" class="logo">
                 <img src="images/Afbeelding logo.PNG" alt="Straatherres Logo">
             </a>
 
+            <!-- Menu-links -->
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#bookings">Bookings</a></li>
-                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#reviews">REVIEWS</a></li>
+                <li><a href="#about-us">ABOUT US</a></li>
+                <li><a href="#bookings" class="nav-knop cta-knop">BOOKINGS</a></li>
             </ul>
 
+            <!-- Hamburger-icoon voor mobiel -->
             <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+                <span class="streep"></span>
+                <span class="streep"></span>
+                <span class="streep"></span>
             </div>
         </div>
     </nav>
 
+    <!-- Hoofdinhoud van de pagina -->
     <main>
-
+        
+        <!-- ===== SECTIE 1: HOME ===== -->
         <section id="home">
             
-            <div class="hero-max-width-container">
+            <!-- Video en gele blokken wrapper -->
+            <div class="video-wrapper">
+                <div class="geel-video-blok blok-1"></div>
+                <div class="geel-video-blok blok-2"></div>
+                
+                <iframe 
+                    class="youtube-video"
+                    src="https://www.youtube.com/embed/xpI0cA070CY?controls=1"
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Titel (SILENT STREETS ARE) -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="align-left">SILENT</span>
+                    <div class="street-row">
+                        <a href="#bookings" class="hero-knop cta-knop">BOOKINGS</a>
+                        <span class="align-right">STREETS</span>
+                    </div>
+                    <div class="are-row">
+                        <span class="align-left">ARE</span>
+                        <!-- AFBEELDING 2: ARE -->
+                        <div class="are-image-placeholder"></div>
+                    </div>
+                </h1>
+            </div>
+
+            <!-- AFBEELDING 3: HERO LINKS -->
+            <div class="hero-image-placeholder-left"></div>
+
+        </section>
+        
+        <!-- AFBEELDING 4: DIVIDER 1 -->
+        <!-- Staat nu los *tussen* de secties -->
+        <div id="divider-1" class="torn-paper-divider"></div>
+
+        <!-- ===== SECTIE 2: ABOUT US ===== -->
+        <section id="about-us">
+            <div class="about-us-container">
+                
+                <!-- Titel (ABOUT US) -->
+                <div class="about-us-title">
+                    <span>ABOUT</span> 
+                    <span class="text-rood">US</span>
+                </div>
+                
+                <!-- Tekstblok -->
+                <div class="about-us-content">
+                    <p>
+                        Gedreven door de puls van de stad en de passie voor muziek is Straatherres in het leven geroepen.  Bewapend met een bassdrum, een barisax, een trombone en een trompet laten ze de straten van Utrecht swingen. Wat begon als een bandje met een paar spontane optredens, is uitgegroeid tot een hechte formatie die inmiddels niet alleen meer op straat, maar ook op festivals, bruiloften en andere feesten te vinden is. Ze toveren alle plekken van straatklinkers tot podia om tot een dansvloer waarbij niemand stil kan blijven staan. Ze bieden een ervaring, een uitnodiging om deel te nemen aan de ritmes van het moment en de vrijheid om jezelf even te laten opgaan in het hier en nu.
+                    </p>
+                </div>
+            </div>
             
-                <div class="video-wrapper">
-                    <div class="video-yellow-block-1"></div>
-                    <div class="video-yellow-block-2"></div>
-                    <div class="video-aspect-ratio">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+            <!-- AFBEELDING 5: ABOUT US RECHTS -->
+            <div class="about-us-image-placeholder"></div>
+            
+        </section>
+        
+        <!-- AFBEELDING 6: DIVIDER 2 -->
+        <div id="divider-2" class="torn-paper-divider"></div>
+
+        <!-- ===== SECTIE 3: BOOKINGS ===== -->
+        <section id="bookings">
+            <div class="bookings-container">
+                
+                <!-- Titel (BOOKINGS) -->
+                <h2>BOOKINGS</h2>
+
+                <!-- Decoratieve rode blokken (achter) -->
+                <div class="bookings-decor-container">
+                    <div class="rood-blok blok-1"></div>
+                    <div class="rood-blok blok-2"></div>
+                </div>
+                
+                <!-- Contactformulier (wit) -->
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/xldanebz" method="POST">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Aanvraag</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <!-- Verborgen velden voor Formspree -->
+                        <input type="hidden" name="_subject" value="Nieuwe aanvraag via Straatherres.nl!">
+                        <input type="hidden" name="_replyto" value="email">
+                        
+                        <div class="form-group">
+                            <button type="submit" class="cta-knop">Verstuur</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- AFBEELDING 7: BOOKINGS RECHTS -->
+            <div class="bookings-image-placeholder-right"></div>
+
+        </section>
+        
+        <!-- AFBEELDING 8: DIVIDER 3 -->
+        <div id="divider-3" class="torn-paper-divider-bottom"></div>
+
+        <!-- ===== SECTIE 4: REVIEWS ===== -->
+        <section id="reviews">
+            
+            <!-- Inhoudscontainer (voor tekst en reviews) -->
+            <div class="reviews-container">
+                <h2>REVIEWS</h2>
+                <p class="review-intro-text">
+                    Providing a great experience for the people around us is always our top priority. We truly value your feedback and would love to hear what you think of us!
+                </p>
+
+                <!-- Review Ticker Rij 1 -->
+                <div class="review-ticker-wrapper">
+                    <div class="review-ticker-track">
+                        <!-- Originele 6 blokken -->
+                        <div class="review-blok"><p>"Geweldig! Ze speelden op onze bruiloft en iedereen ging los."</p><span>- Anne & Mark</span></div>
+                        <div class="review-blok"><p>"Deze gasten zijn pure energie. Wat een feest op straat."</p><span>- Café Bepp</span></div>
+                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor een bedrijfsfeest. Beste keuze ooit."</p><span>- Jan Willem (CoolBlue)</span></div>
+                        <div class="review-blok"><p>"Mijn dag was ... en toen kwam ik Straatherres tegen."</p><span>- Willekeurige voorbijganger</span></div>
+                        <div class="review-blok"><p>"Pure chaos, maar dan op de allerbeste manier. Wat een vibe!"</p><span>- Smaak Festival</span></div>
+                        <div class="review-blok"><p>"Mijn zoontje wil nu ook trombone spelen. Bedankt!"</p><span>- Een blije moeder</span></div>
+                        <!-- Gekopieerde 6 blokken (voor de loop) -->
+                        <div class="review-blok"><p>"Geweldig! Ze speelden op onze bruiloft en iedereen ging los."</p><span>- Anne & Mark</span></div>
+                        <div class="review-blok"><p>"Deze gasten zijn pure energie. Wat een feest op straat."</p><span>- Café Bepp</span></div>
+                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor een bedrijfsfeest. Beste keuze ooit."</p><span>- Jan Willem (CoolBlue)</span></div>
+                        <div class="review-blok"><p>"Mijn dag was ... en toen kwam ik Straatherres tegen."</p><span>- Willekeurige voorbijganger</span></div>
+                        <div class="review-blok"><p>"Pure chaos, maar dan op de allerbeste manier. Wat een vibe!"</p><span>- Smaak Festival</span></div>
+                        <div class="review-blok"><p>"Mijn zoontje wil nu ook trombone spelen. Bedankt!"</p><span>- Een blije moeder</span></div>
                     </div>
                 </div>
 
-                <div class="hero-content">
-                    <h1>
-                        <span class="line-1">SILENT</span>
-                        <span class="line-2">STREETS</span>
-                        <span class="line-3">ARE</span>
-                        <span class="line-4">BORING</span>
-                    </h1>
-                    <a href="#bookings" class="hero-knop cta-knop">BOOKINGS</a>
-                </div>
-
-                <div class="hero-image-placeholder-left"></div>
-            
-            </div> <a href="#bookings" class="hero-knop-mobiel cta-knop">BOOKINGS</a>
-
-        </section>
-
-        <div class="divider-top"></div>
-
-        <section id="about-us">
-            <div class="about-us-container">
-                <div class="about-us-content">
-                    <h2>ABOUT US</h2>
-                    <p>
-                        Wij zijn Straatherres, een band geboren op de straten van Utrecht. 
-                        Wat begon als een spontane jamsessie op de Oude Gracht, groeide al snel uit 
-                        tot een missie: elke straathoek, elk plein en elk feest omtoveren tot 
-                        een onvergetelijk muzikaal moment.
-                    </p>
-                    <p>
-                        Onze muziek is een mix van alles wat je laat bewegen. 
-                        Met een flinke dosis energie, improvisatie en een voorliefde voor 
-                        interactie met het publiek, maken we van elke gelegenheid een feest.
-                    </p>
-                </div>
-                
-                <div class="about-us-image-placeholder"></div>
-            </div>
-        </section>
-
-        <div class="divider-bottom"></div>
-        
-        <section id="bookings">
-            <div class="bookings-container">
-                <div class="bookings-content">
-                    <h2>BOOKINGS</h2>
-                    <p>
-                        Klaar om jullie straat, festival, bruiloft of (bedrijfs)feest 
-                        op stelten te zetten? Vul het formulier in en we nemen zo 
-                        snel mogelijk contact op om de details te bespreken.
-                    </p>
-                    
-                    <form action="https://formspree.io/f/jouw-unieke-id" method="POST" class="bookings-form">
-                        <div class="form-group">
-                            <label for="name">Naam:</label>
-                            <input type_name="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type_name="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Datum (optioneel):</label>
-                            <input type_name="date" id="date" name="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Bericht:</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type_name="submit" class="cta-knop form-knop">Verstuur</button>
-                    </form>
-                </div>
-
-                <div class="bookings-image-placeholder-right"></div>
-            </div>
-        </section>
-        
-        <div class="divider-top"></div>
-
-        <section id="reviews">
-            
-            <div class="reviews-container">
-                
-                <div class="reviews-content-left">
-                    <h2>REVIEWS</h2>
-                    <p class="review-intro-text">
-                        We kunnen zelf wel zeggen hoe geweldig we zijn, maar 
-                        dit is wat anderen vonden:
-                    </p>
-                </div>
-
+                <!-- Review Ticker Rij 2 -->
                 <div class="review-ticker-wrapper">
-                    <div class="review-ticker-track">
-                        <div class="review-blok"><p>"Energie! Zoveel energie. Mijn voeten deden pijn van het dansen."</p><span>- Een enthousiaste voorbijganger</span></div>
-                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor mijn bruiloft. Beste beslissing ooit."</p><span>- Gelukkige bruidegom</span></div>
-                        <div class="review-blok"><p>"Ze speelden 'Wonderwall'. Ik huilde. 10/10."</p><span>- Emotionele fan</span></div>
-                        
-                        <div class="review-blok"><p>"Energie! Zoveel energie. Mijn voeten deden pijn van het dansen."</p><span>- Een enthousiaste voorbijganger</span></div>
-                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor mijn bruiloft. Beste beslissing ooit."</p><span>- Gelukkige bruidegom</span></div>
-                        <div class="review-blok"><p>"Ze speelden 'Wonderwall'. Ik huilde. 10/10."</p><span>- Emotionele fan</span></div>
-                        
+                    <div class="review-ticker-track reverse">
+                        <!-- Originele 6 blokken -->
+                        <div class="review-blok"><p>"Absoluut legendarisch. Ze hebben de hele straat aan het dansen gekregen."</p><span>- D. U.</span></div>
+                        <div class="review-blok"><p>"Elke keer als ik ze zie, word ik vrolijk."</p><span>- Student in Utrecht</span></div>
+                        <div class="review-blok"><p>"Perfecte muziek, perfecte sfeer. 10/10."</p><span>- Utrechter</span></div>
                         <div class="review-blok"><p>"Van ABBA tot... alles. Ze kunnen het allemaal spelen."</p><span>- Muziekkenner</span></div>
-                        <div class="review-blok"><p>"Niet twijfelen, gewoon boeken."</p<span>- Iemand op de Oude Gracht</span></div>
+                        <div class="review-blok"><p>"Niet twijfelen, gewoon boeken."</p><span>- Iemand op de Oude Gracht</span></div>
                         <div class="review-blok"><p>"Beter dan een Spotify-playlist. Veel beter."</p><span>- Barista</span></div>
-
+                        <!-- Gekopieerde 6 blokken (voor de loop) -->
+                        <div class="review-blok"><p>"Absoluut legendarisch. Ze hebben de hele straat aan het dansen gekregen."</p><span>- D. U.</span></div>
+                        <div class="review-blok"><p>"Elke keer als ik ze zie, word ik vrolijk."</p><span>- Student in Utrecht</span></div>
+                        <div class="review-blok"><p>"Perfecte muziek, perfecte sfeer. 10/10."</p><span>- Utrechter</span></div>
                         <div class="review-blok"><p>"Van ABBA tot... alles. Ze kunnen het allemaal spelen."</p><span>- Muziekkenner</span></div>
                         <div class="review-blok"><p>"Niet twijfelen, gewoon boeken."</p><span>- Iemand op de Oude Gracht</span></div>
                         <div class="review-blok"><p>"Beter dan een Spotify-playlist. Veel beter."</p><span>- Barista</span></div>
                     </div>
                 </div>
-
-                <div class="review-photo-placeholder"></div>
-
             </div>
+
+            <!-- AFBEELDING 9: REVIEWS RECHTS -->
+            <div class="review-photo-placeholder"></div>
+
         </section>
 
+        <!-- ===== SECTIE 5: LAATSTE AFBEELDING ===== -->
         <section id="final-image">
             <a href="https://www.instagram.com/utrecht_straatherres/" target="_blank" class="final-image-link" aria-label="Volg ons op Instagram">
                 <div class="instagram-text-wrapper">
@@ -186,9 +233,12 @@
 
     </main>
     
+    <!-- Zwarte achtergrond voor de footer -->
     <footer class="footer-background">
-        </footer>
+        <!-- Deze is leeg, dient alleen als zwarte achtergrond -->
+    </footer>
 
+    <!-- Link naar het JavaScript-bestand -->
     <script src="script.js"></script>
 </body>
 </html>
