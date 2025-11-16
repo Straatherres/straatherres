@@ -1,0 +1,42 @@
+# Simpele workflow voor het publiceren van statische content naar GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Voert deze actie uit telkens als u 'pusht' naar de 'main' branch
+  push:
+    branches: ["main"]
+
+  # Hiermee kunt u de actie handmatig starten vanuit het Actions-tabblad
+  workflow_dispatch:
+
+# Stel de GITHUB_TOKEN permissies in zodat GitHub Actions naar Pages kan deployen
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Sta slechts één gelijktijdige implementatie toe
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Enkele taak genaamd 'deploy'
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload de volledige repository (root)
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
