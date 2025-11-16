@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Straatherres</title>
+    
+    <!-- Meta beschrijving voor Google -->
     <meta name="description" content="Straatherres is dé energieke band uit Utrecht die straten omtovert tot een spontaan feest. Ervaar de magie! Nu te boeken voor festivals, bruiloften & feesten.">
     
-    <!-- Importeer de Google lettertypes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
-    
-    <!-- Link naar het externe CSS-bestand -->
+    <!-- Importeer de lettertypes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Wendy+One&display=swap" rel="stylesheet">
+
+    <!-- Link naar het CSS-bestand -->
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
     <!-- Navigatiebalk -->
     <nav class="navbar">
         <div class="navbar-container">
+            
+            <!-- AFBEELDING 1: LOGO -->
             <a href="#home" class="logo">
-                <!-- !! AFBEELDING 1: PADVervangen !! -->
                 <img src="images/Afbeelding logo.PNG" alt="Straatherres Logo">
             </a>
+
+            <!-- Menu-links -->
             <ul class="nav-links">
                 <li><a href="#reviews">REVIEWS</a></li>
                 <li><a href="#about-us">ABOUT US</a></li>
                 <li><a href="#bookings" class="nav-knop cta-knop">BOOKINGS</a></li>
             </ul>
+
+            <!-- Hamburger-icoon voor mobiel -->
             <div class="hamburger">
                 <span class="streep"></span>
                 <span class="streep"></span>
@@ -36,29 +43,28 @@
         </div>
     </nav>
 
-    <!-- Hoofdinhoud -->
+    <!-- Hoofdinhoud van de pagina -->
     <main>
         
-        <!-- Hero Sectie -->
+        <!-- ===== SECTIE 1: HOME ===== -->
         <section id="home">
-
-            <!-- Video Wrapper -->
+            
+            <!-- Video en gele blokken wrapper -->
             <div class="video-wrapper">
                 <div class="geel-video-blok blok-1"></div>
                 <div class="geel-video-blok blok-2"></div>
                 
                 <iframe 
                     class="youtube-video"
-                    src="https://www.youtube.com/embed/xpI0cA070CY?si=tZczdudflVZ9loF2&loop=1&playlist=xpI0cA070CY&controls=1" 
+                    src="https://www.youtube.com/embed/xpI0cA070CY?controls=1"
                     title="YouTube video player" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
                 </iframe>
             </div>
 
-            <!-- Inhoud (Titel) -->
+            <!-- Titel (SILENT STREETS ARE) -->
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="align-left">SILENT</span>
@@ -66,264 +72,173 @@
                         <a href="#bookings" class="hero-knop cta-knop">BOOKINGS</a>
                         <span class="align-right">STREETS</span>
                     </div>
-                    <div class="are-row align-left">
-                        <span>ARE</span>
-                        <!-- AFBEELDING 2: Pad staat in style.css -->
+                    <div class="are-row">
+                        <span class="align-left">ARE</span>
+                        <!-- AFBEELDING 2: ARE -->
                         <div class="are-image-placeholder"></div>
                     </div>
                 </h1>
             </div>
 
-            <!-- AFBEELDING 3: Pad staat in style.css -->
-            <div class="hero-image-placeholder-left">
-            </div>
+            <!-- AFBEELDING 3: HERO LINKS -->
+            <div class="hero-image-placeholder-left"></div>
 
         </section>
         
-        <!-- !! DIVIDER 1: Nu los van de sectie !! -->
-        <!-- AFBEELDING 4: Pad staat in style.css -->
-        <div class="torn-paper-divider" id="divider-1">
-        </div>
-        
-        
-        <!-- About Us Sectie -->
+        <!-- AFBEELDING 4: DIVIDER 1 -->
+        <!-- Staat nu los *tussen* de secties -->
+        <div id="divider-1" class="torn-paper-divider"></div>
+
+        <!-- ===== SECTIE 2: ABOUT US ===== -->
         <section id="about-us">
             <div class="about-us-container">
                 
-                <!-- 1. Gedraaide Titel -->
+                <!-- Titel (ABOUT US) -->
                 <div class="about-us-title">
                     <span>ABOUT</span> 
                     <span class="text-rood">US</span>
                 </div>
                 
-                <!-- 2. Tekst -->
+                <!-- Tekstblok -->
                 <div class="about-us-content">
                     <p>
-                        Gedreven door de puls van de stad en de passie voor muziek is Straatherres in het leven geroepen.  Bewapend met een bassdrum, een barisax, een trombone en een trompet laten ze de straten van Utrecht swingen. Wat begon als een bandje met een paar spontane optredens, is uitgegroeid tot een hechte formatie die inmiddels niet alleen meer op straat, maar ook op festivals, bruiloften en andere feesten te vinden is. Ze toveren alle plekken van straatklinkers tot podia om tot een dansvloer waarbij niemand stil kan blijven staan. Ze bieden een ervaring, een uitnodiging om deel te nemen aan de ritmes van het moment en de vrijheid om jezelf even te laten opgaan inti
+                        Gedreven door de puls van de stad en de passie voor muziek is Straatherres in het leven geroepen.  Bewapend met een bassdrum, een barisax, een trombone en een trompet laten ze de straten van Utrecht swingen. Wat begon als een bandje met een paar spontane optredens, is uitgegroeid tot een hechte formatie die inmiddels niet alleen meer op straat, maar ook op festivals, bruiloften en andere feesten te vinden is. Ze toveren alle plekken van straatklinkers tot podia om tot een dansvloer waarbij niemand stil kan blijven staan. Ze bieden een ervaring, een uitnodiging om deel te nemen aan de ritmes van het moment en de vrijheid om jezelf even te laten opgaan in het hier en nu.
                     </p>
                 </div>
             </div>
-
-            <!-- AFBEELDING 5: Pad staat in style.css -->
-            <div class="about-us-image-placeholder">
-            </div>
-
+            
+            <!-- AFBEELDING 5: ABOUT US RECHTS -->
+            <div class="about-us-image-placeholder"></div>
+            
         </section>
         
-        <!-- !! DIVIDER 2: Nu los van de sectie !! -->
-        <!-- AFBEELDING 6: Pad staat in style.css -->
-        <div class="torn-paper-divider-bottom" id="divider-2">
-        </div>
+        <!-- AFBEELDING 6: DIVIDER 2 -->
+        <div id="divider-2" class="torn-paper-divider"></div>
 
-        <!-- Bookings Sectie -->
+        <!-- ===== SECTIE 3: BOOKINGS ===== -->
         <section id="bookings">
-            
-            <!-- Container voor het formulier (Voorgrond) -->
             <div class="bookings-container">
                 
-                <!-- Decoratieve Rode Blokken (Achtergrond) HIERIN GEPLAATST -->
+                <!-- Titel (BOOKINGS) -->
+                <h2>BOOKINGS</h2>
+
+                <!-- Decoratieve rode blokken (achter) -->
                 <div class="bookings-decor-container">
                     <div class="rood-blok blok-1"></div>
                     <div class="rood-blok blok-2"></div>
                 </div>
                 
-                <h2>BOOKINGS</h2>
+                <!-- Contactformulier (wit) -->
                 <div class="contact-form-wrapper">
-                    <!-- Formulier linkt nu naar de juiste Formspree URL -->
                     <form action="https://formspree.io/f/xldanebz" method="POST">
-                        
-                        <!-- Veld: NAAM -->
                         <div class="form-group">
-                            <label for="naam">NAAM</label>
-                            <input type="text" id="naam" name="name" required>
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        
-                        <!-- Veld: E-mail (Vereist voor 'Reply-to') -->
                         <div class="form-group">
-                            <label for="email">E-MAIL</label>
+                            <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
-                        <!-- Veld: AANVRAAG -->
                         <div class="form-group">
-                            <label for="aanvraag">AANVRAAG</label>
-                            <textarea id="aanvraag" name="message" rows="5" required></textarea>
+                            <label for="message">Aanvraag</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
+                        <!-- Verborgen velden voor Formspree -->
+                        <input type="hidden" name="_subject" value="Nieuwe aanvraag via Straatherres.nl!">
+                        <input type="hidden" name="_replyto" value="email">
                         
-                        <!-- Verstuur Knop -->
                         <div class="form-group">
                             <button type="submit" class="cta-knop">Verstuur</button>
                         </div>
                     </form>
                 </div>
             </div>
-            
-            <!-- AFBEELDING 7: Pad staat in style.css -->
-            <div class="bookings-image-placeholder-right">
-            </div>
-                        
+
+            <!-- AFBEELDING 7: BOOKINGS RECHTS -->
+            <div class="bookings-image-placeholder-right"></div>
+
         </section>
         
-        <!-- !! DIVIDER 3: Nu los van de sectie !! -->
-        <!-- AFBEELDING 8: Pad staat in style.css -->
-        <div class="torn-paper-divider-bottom" id="divider-3">
-        </div>
+        <!-- AFBEELDING 8: DIVIDER 3 -->
+        <div id="divider-3" class="torn-paper-divider-bottom"></div>
 
-        <!-- Reviews Sectie -->
+        <!-- ===== SECTIE 4: REVIEWS ===== -->
         <section id="reviews">
+            
+            <!-- Inhoudscontainer (voor tekst en reviews) -->
             <div class="reviews-container">
                 <h2>REVIEWS</h2>
-                
-                <!-- Introductie tekst -->
                 <p class="review-intro-text">
                     Providing a great experience for the people around us is always our top priority. We truly value your feedback and would love to hear what you think of us!
                 </p>
-                
-                <!-- Wrapper voor de geanimeerde review-blokken (RIJ 1) -->
-                <div class="review-ticker-wrapper row-1">
-                    <!-- De 'track' die daadwerkelijk beweegt -->
+
+                <!-- Review Ticker Rij 1 -->
+                <div class="review-ticker-wrapper">
                     <div class="review-ticker-track">
-                        <!-- Groep 1 (De echte reviews) -->
-                        <div class="review-blok">
-                            <p>"Geweldige band! Wat een energie. Ze hebben ons huwelijksfeest onvergetelijk gemaakt!"</p>
-                            <span>- Bruidspaar Jansen</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Ik zag ze op straat in Utrecht en kon niet stoppen met dansen. Fantastisch!"</p>
-                            <span>- Toerist uit Duitsland</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 3: Klinkt goed, ziet er goed uit, helemaal top."</p>
-                            <span>- Festivalganger</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 4: Elke keer weer een feest. Deze jongens brengen de zon mee."</p>
-                            <span>- Café-eigenaar</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 5: Beste act van de dag. Pure, rauwe funk."</p>
-                            <span>- Muziekcriticus</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 6: Gehuurd voor een bedrijfsfeest, iedereen was laaiend enthousiast."</p>
-                            <span>- CEO</span>
-                        </div>
-                        
-                        <!-- Groep 2 (Een kopie van Groep 1, essentieel voor een naadloze loop) -->
-                        <div class="review-blok">
-                            <p>"Geweldige band! Wat een energie. Ze hebben ons huwelijksfeest onvergetelijk gemaakt!"</p>
-                            <span>- Bruidspaar Jansen</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Ik zag ze op straat in Utrecht en kon niet stoppen met dansen. Fantastisch!"</p>
-                            <span>- Toerist uit Duitsland</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 3: Klinkt goed, ziet er goed uit, helemaal top."</p>
-                            <span>- Festivalganger</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 4: Elke keer weer een feest. Deze jongens brengen de zon mee."</p>
-                            <span>- Café-eigenaar</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 5: Beste act van de dag. Pure, rauwe funk."</p>
-                            <span>- Muziekcriticus</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 6: Gehuurd voor een bedrijfsfeest, iedereen was laaiend enthousiast."</p>
-                            <span>- CEO</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Wrapper voor de geanimeerde review-blokken (RIJ 2) -->
-                <div class="review-ticker-wrapper row-2">
-                    <!-- De 'track' die daadwerkelijk beweegt -->
-                    <div class="review-ticker-track reverse"> <!-- 'reverse' class voor tegengestelde richting -->
-                        <!-- Groep 1 (De echte reviews) -->
-                        <div class="review-blok">
-                            <p>"Geweldige band! Wat een energie. Ze hebben ons huwelijksfeest onvergetelijk gemaakt!"</p>
-                            <span>- Bruidspaar Jansen</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Ik zag ze op straat in Utrecht en kon niet stoppen met dansen. Fantastisch!"</p>
-                            <span>- Toerist uit Duitsland</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 3: Klinkt goed, ziet er goed uit, helemaal top."</p>
-                            <span>- Festivalganger</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 4: Elke keer weer een feest. Deze jongens brengen de zon mee."</p>
-                            <span>- Café-eigenaar</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 5: Beste act van de dag. Pure, rauwe funk."</p>
-                            <span>- Muziekcriticus</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 6: Gehuurd voor een bedrijfsfeest, iedereen was laaiend enthousiast."</p>
-                            <span>- CEO</span>
-                        </div>
-                        
-                        <!-- Groep 2 (Een kopie van Groep 1, essentieel voor een naadloze loop) -->
-                        <div class="review-blok">
-                            <p>"Geweldige band! Wat een energie. Ze hebben ons huwelijksfeest onvergetelijk gemaakt!"</p>
-                            <span>- Bruidspaar Jansen</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Ik zag ze op straat in Utrecht en kon niet stoppen met dansen. Fantastisch!"</p>
-                            <span>- Toerist uit Duitsland</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 3: Klinkt goed, ziet er goed uit, helemaal top."</p>
-                            <span>- Festivalganger</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 4: Elke keer weer een feest. Deze jongens brengen de zon mee."</p>
-                            <span>- Café-eigenaar</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 5: Beste act van de dag. Pure, rauwe funk."</p>
-                            <span>- Muziekcriticus</span>
-                        </div>
-                        <div class="review-blok">
-                            <p>"Review 6: Gehuurd voor een bedrijfsfeest, iedereen was laaiend enthousiast."</p>
-                            <span>- CEO</span>
-                        </div>
+                        <!-- Originele 6 blokken -->
+                        <div class="review-blok"><p>"Geweldig! Ze speelden op onze bruiloft en iedereen ging los."</p><span>- Anne & Mark</span></div>
+                        <div class="review-blok"><p>"Deze gasten zijn pure energie. Wat een feest op straat."</p><span>- Café Bepp</span></div>
+                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor een bedrijfsfeest. Beste keuze ooit."</p><span>- Jan Willem (CoolBlue)</span></div>
+                        <div class="review-blok"><p>"Mijn dag was ... en toen kwam ik Straatherres tegen."</p><span>- Willekeurige voorbijganger</span></div>
+                        <div class="review-blok"><p>"Pure chaos, maar dan op de allerbeste manier. Wat een vibe!"</p><span>- Smaak Festival</span></div>
+                        <div class="review-blok"><p>"Mijn zoontje wil nu ook trombone spelen. Bedankt!"</p><span>- Een blije moeder</span></div>
+                        <!-- Gekopieerde 6 blokken (voor de loop) -->
+                        <div class="review-blok"><p>"Geweldig! Ze speelden op onze bruiloft en iedereen ging los."</p><span>- Anne & Mark</span></div>
+                        <div class="review-blok"><p>"Deze gasten zijn pure energie. Wat een feest op straat."</p><span>- Café Bepp</span></div>
+                        <div class="review-blok"><p>"Ik heb ze ingehuurd voor een bedrijfsfeest. Beste keuze ooit."</p><span>- Jan Willem (CoolBlue)</span></div>
+                        <div class="review-blok"><p>"Mijn dag was ... en toen kwam ik Straatherres tegen."</p><span>- Willekeurige voorbijganger</span></div>
+                        <div class="review-blok"><p>"Pure chaos, maar dan op de allerbeste manier. Wat een vibe!"</p><span>- Smaak Festival</span></div>
+                        <div class="review-blok"><p>"Mijn zoontje wil nu ook trombone spelen. Bedankt!"</p><span>- Een blije moeder</span></div>
                     </div>
                 </div>
 
+                <!-- Review Ticker Rij 2 -->
+                <div class="review-ticker-wrapper">
+                    <div class="review-ticker-track reverse">
+                        <!-- Originele 6 blokken -->
+                        <div class="review-blok"><p>"Absoluut legendarisch. Ze hebben de hele straat aan het dansen gekregen."</p><span>- D. U.</span></div>
+                        <div class="review-blok"><p>"Elke keer als ik ze zie, word ik vrolijk."</p><span>- Student in Utrecht</span></div>
+                        <div class="review-blok"><p>"Perfecte muziek, perfecte sfeer. 10/10."</p><span>- Utrechter</span></div>
+                        <div class="review-blok"><p>"Van ABBA tot... alles. Ze kunnen het allemaal spelen."</p><span>- Muziekkenner</span></div>
+                        <div class="review-blok"><p>"Niet twijfelen, gewoon boeken."</p><span>- Iemand op de Oude Gracht</span></div>
+                        <div class="review-blok"><p>"Beter dan een Spotify-playlist. Veel beter."</p><span>- Barista</span></div>
+                        <!-- Gekopieerde 6 blokken (voor de loop) -->
+                        <div class="review-blok"><p>"Absoluut legendarisch. Ze hebben de hele straat aan het dansen gekregen."</p><span>- D. U.</span></div>
+                        <div class="review-blok"><p>"Elke keer als ik ze zie, word ik vrolijk."</p><span>- Student in Utrecht</span></div>
+                        <div class="review-blok"><p>"Perfecte muziek, perfecte sfeer. 10/10."</p><span>- Utrechter</span></div>
+                        <div class="review-blok"><p>"Van ABBA tot... alles. Ze kunnen het allemaal spelen."</p><span>- Muziekkenner</span></div>
+                        <div class="review-blok"><p>"Niet twijfelen, gewoon boeken."</p><span>- Iemand op de Oude Gracht</span></div>
+                        <div class="review-blok"><p>"Beter dan een Spotify-playlist. Veel beter."</p><span>- Barista</span></div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- AFBEELDING 9: Pad staat in style.css -->
-            <div class="review-photo-placeholder">
-            </div>
+
+            <!-- AFBEELDING 9: REVIEWS RECHTS -->
+            <div class="review-photo-placeholder"></div>
+
         </section>
-        
-        <!-- Laatste statische afbeelding -->
+
+        <!-- ===== SECTIE 5: LAATSTE AFBEELDING ===== -->
         <section id="final-image">
-            <a href="https://www.instagram.com/utrecht_straatherres/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="final-image-link">
-               
-               <!-- Nieuwe Tekst Wrapper (Vervangt de <img> tag) -->
-               <div class="instagram-text-wrapper">
-                   <div class="insta-line-1">FOLLOW US</div>
-                   <div class="insta-line-2">
-                       <span class="insta-on">ON</span>
-                       <span class="insta-brand">INSTAGRAM</span>
-                   </div>
-               </div>
+            <a href="https://www.instagram.com/utrecht_straatherres/" target="_blank" class="final-image-link" aria-label="Volg ons op Instagram">
+                <div class="instagram-text-wrapper">
+                    <span class="insta-line-1">FOLLOW US</span>
+                    <span class="insta-line-2">
+                        <span class="insta-on">ON</span>
+                        <span class="insta-brand">INSTAGRAM</span>
+                    </span>
+                </div>
             </a>
         </section>
-        
-    </main>
 
-    <!-- Link naar het externe JavaScript-bestand -->
-    <script src="script.js"></script>
+    </main>
     
+    <!-- Zwarte achtergrond voor de footer -->
+    <footer class="footer-background">
+        <!-- Deze is leeg, dient alleen als zwarte achtergrond -->
+    </footer>
+
+    <!-- Link naar het JavaScript-bestand -->
+    <script src="script.js"></script>
 </body>
 </html>
