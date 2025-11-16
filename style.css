@@ -224,7 +224,7 @@ main {
 .are-image-placeholder {
     width: clamp(100px, 20vw, 200px);
     height: clamp(50px, 10vw, 100px);
-    background-image: url('images/Naamloos-1.svg');
+    background-image: url('images/Boring.png');
     background-size: cover;
     background-position: center;
 }
@@ -841,3 +841,4 @@ main {
         justify-content: center;
     }
 }
+
