@@ -13,11 +13,21 @@
     box-sizing: border-box;
 }
 
-/* !! AANGEPAST: overflow-x: hidden; geldt nu voor html én body !! */
+/* Forceer 100% breedte en verberg horizontale scrollbars */
 html, body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative; /* Nodig voor de 'full-bleed' dividers */
+}
+
+body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--wit); 
-    overflow-x: hidden; /* Voorkomt horizontaal scrollen */
+}
+
+/* Forceer 'main' om 100% breedte te vullen */
+main {
+    width: 100%;
 }
 
 /* --- Navigatiebalk Styling --- */
@@ -102,16 +112,13 @@ html, body {
 /* --- Hero Sectie --- */
 #home {
     position: relative; 
+    width: 100%; /* Forceer 100% breedte */
     height: 1200px; 
-    /* Achtergrond is nu zwart */
     background-color: var(--zwart); 
     display: flex;
     align-items: flex-start; 
     justify-content: center;
-    /* !! AANGEPAST: z-index toegevoegd voor stapelvolgorde !! */
     z-index: 5; 
-    /* !! AANGEPAST: width: 100% toegevoegd !! */
-    width: 100%;
 }
 
 /* Nieuwe Spraypaint Overlay */
@@ -121,31 +128,27 @@ html, body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; /* 70% van de breedte */
+    width: 70%; 
     height: 100%;
     background-image: url('images/Spraypaint.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1; /* 20% opacity */
+    opacity: 0.2; 
     z-index: 1;
 }
-
 
 /* --- Video Wrapper (Grootte & Positie) --- */
 .video-wrapper {
     position: absolute;
     bottom: 200px;
-    /* 5 pixels naar rechts verplaatst */
     right: calc(4% - 15px);
-    
     width: 60vw; 
     height: 33.75vw; /* 16:9 ratio */
     min-width: 300px;
     min-height: 168.75px;
     max-width: 800px; 
     max-height: 450px; 
-
     z-index: 2; 
 }
 
@@ -156,15 +159,14 @@ html, body {
     height: 100%;
     background-color: var(--geel);
     transform: rotate(1deg); 
-    z-index: 1; /* Ligt onder de video */
+    z-index: 1; 
 }
 
 .geel-video-blok.blok-1 {
-    /* Dit is het standaard blok */
+    /* Standaard blok */
 }
 
 .geel-video-blok.blok-2 {
-    /* Dit blok is iets verschoven */
     transform: translate(15px, 10px) rotate(1deg);
 }
 
@@ -174,10 +176,9 @@ html, body {
     width: 100%;
     height: 100%;
     border: none;
-    z-index: 2; /* Ligt boven de gele blokken */
+    z-index: 2; 
     overflow: hidden;
 }
-
 
 .hero-content {
     position: relative; 
@@ -186,7 +187,6 @@ html, body {
     padding-top: 100px; 
     width: 90%; 
     max-width: 1200px; 
-    /* Tekst 30px naar binnen (midden) */
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -220,7 +220,7 @@ html, body {
     gap: 20px;
 }
 
-/* !! AFBEELDING 2: ARE (Naast 'ARE') !! */
+/* AFBEELDING 2: ARE */
 .are-image-placeholder {
     width: clamp(100px, 20vw, 200px);
     height: clamp(50px, 10vw, 100px);
@@ -234,16 +234,15 @@ html, body {
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
 }
 
-/* !! AFBEELDING 3: HERO LINKS (PERSOON 1) !! */
+/* AFBEELDING 3: HERO LINKS */
 .hero-image-placeholder-left {
     position: absolute;
-    /* !! AANGEPAST: Positie t.o.v. het midden !! */
     left: 50%;
-    margin-left: -700px; /* 600px (helft content) + 100px = 700px */
+    /* 700px links van het midden */
+    margin-left: -700px; 
     bottom: 0; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 450px) !! */
-    width: clamp(550px, 45vw, 800px); 
-    height: clamp(550px, 45vw, 800px); 
+    width: clamp(450px, 45vw, 800px); 
+    height: clamp(450px, 45vw, 800px); 
     z-index: 1; 
     background-image: url('images/BeginstukPersoon1.svg');
     background-size: cover;
@@ -251,44 +250,35 @@ html, body {
 }
 
 /* --- Overgang (Gescheurd Papier) --- */
-/* !! AANGEPAST: Dit is de nieuwe, losstaande structuur !! */
 .torn-paper-divider,
 .torn-paper-divider-bottom {
-    position: relative; /* Niet meer absolute */
+    /* Staat nu als 'block' in de HTML, niet 'absolute' */
+    position: relative; 
     width: 100%;
     height: 80px;
     z-index: 11; /* Bovenop alles */
+    transform-origin: center center;
     background-repeat: no-repeat;
-    /* Zorgt dat de afbeelding volledig schaalt */
     background-size: 100% 100%;
-    /* Centreert de 'scheur' op de scheidingslijn */
-    margin-top: -40px; /* Helft van de hoogte */
-    margin-bottom: -40px; /* Helft van de hoogte */
     
-    /* !! NIEUWE FIX: 'Full Bleed' Truc !! */
-    width: 100vw; /* 100% van de SCHERM-breedte */
-    left: 50%; /* Centreer het blok */
-    /* Trek het terug naar de linkerrand */
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-/* Positionering voor de bovenste 3 dividers */
-.torn-paper-divider {
-    /* (Standaard positionering is goed) */
+    /* Gecentreerd op de scheidingslijn */
+    /* De helft van de hoogte (80px / 2 = 40px) */
+    margin-top: -40px; 
 }
 
 /* Positionering voor de onderste 3 dividers */
 .torn-paper-divider-bottom {
     transform: scale(-1, -1); /* Gespiegeld */
+    margin-bottom: -40px; /* Compenseer voor de transform */
+    margin-top: -40px;
 }
 
 /* Specifieke afbeeldingen voor elke divider */
 #divider-1 {
     /* AFBEELDING 4 */
-    /* Vervangen door Scheur 3 en gespiegeld */
     background-image: url('images/Scheur3.svg');
-    transform: scaleX(-1); /* Alleen horizontaal spiegelen */
+    transform: scaleX(-1); /* Gespiegeld */
+    margin-top: -40px; /* Moet hier opnieuw, overschrijft de base */
 }
 #divider-2 {
     /* AFBEELDING 6 */
@@ -300,19 +290,16 @@ html, body {
 }
 
 
-/* /* --- About Us Sectie --- 
-*/
+/* --- About Us Sectie --- */
 #about-us {
-    position: relative; /* Nodig voor de gespiegelde divider */
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    position: relative; 
+    width: 100%; /* Forceer 100% breedte */
     z-index: 4; 
     scroll-margin-top: 70px; 
     padding: 100px 0;
     background-color: var(--zwart); 
     color: var(--wit);
-    min-height: 800px; /* !! AANGEPAST: Verhoogd van 600px, voor meer ruimte tussen tekst en afbeelding !! */
-    /* !! AANGEPAST: width: 100% toegevoegd !! */
-    width: 100%;
+    min-height: 800px; /* Hoger gemaakt */
 }
 
 .about-us-container {
@@ -321,7 +308,7 @@ html, body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0px; /* Dichterbij elkaar */
+    gap: 0px; 
 }
 
 /* 1. Titel */
@@ -335,7 +322,6 @@ html, body {
 }
 .about-us-title .text-rood {
     color: var(--rood);
-    /* Gebruik nu Wendy One */
     font-family: 'Wendy One', sans-serif;
 }
 
@@ -346,7 +332,6 @@ html, body {
 }
 
 .about-us-title span:first-child {
-    /* 'ABOUT' lager gezet */
     margin-right: 5rem;
 }
 
@@ -360,27 +345,25 @@ html, body {
     font-family: 'Montserrat', sans-serif; 
     font-size: 1.1rem;
     line-height: 1.7;
-    /* max-width: 800px; Verwijderd, nu breder */
     position: relative; 
     z-index: 2;
     padding-bottom: 50px; 
 }
 
-/* !! AFBEELDING 5: ABOUT US RECHTS (PERSOON 2) !! */
+/* AFBEELDING 5: ABOUT US RECHTS */
 .about-us-image-placeholder {
     position: absolute;
-    /* !! AANGEPAST: Positie t.o.v. het midden !! */
     right: 50%;
-    margin-right: -700px; /* 600px (helft content) + 100px = 700px */
+    /* 700px rechts van het midden */
+    margin-right: -700px; 
     bottom: 0; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 350px) !! */
-    width: clamp(400px, 45vw, 500px); 
-    height: clamp(400px, 45vw, 500px); 
+    width: clamp(450px, 45vw, 500px); 
+    height: clamp(450px, 45vw, 500px); 
     z-index: 1; 
     background-image: url('images/AboutusPersoon2.svg');
-    /* !! AANGEPAST: 'cover' naar 'contain' !! */
+    /* 'contain' zodat de bovenkant niet wordt afgesneden */
     background-size: contain;
-    background-position: bottom right; /* Zorgt dat het netjes in de hoek zit */
+    background-position: bottom right;
     background-repeat: no-repeat;
 }
 
@@ -388,28 +371,25 @@ html, body {
 /* --- Bookings Sectie --- */
 #bookings {
     position: relative;
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
+    width: 100%; /* Forceer 100% breedte */
     z-index: 3;
     scroll-margin-top: 70px; 
-    /* 50px onder de divider (15px) = 65px */
     padding-top: 65px; 
     padding-bottom: 200px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! AANGEPAST: width: 100% toegevoegd !! */
-    width: 100%;
 }
 
 .bookings-container {
     width: 90%;
-    max-width: 600px; /* Formulier smaller gemaakt */
+    max-width: 600px; 
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Nodig voor de decor-container */
-    z-index: 5; /* Boven de hoek-afbeelding */
+    position: relative; 
+    z-index: 5; 
 }
 
-/* Container voor rode blokken (nu binnen .bookings-container) */
+/* Container voor rode blokken */
 .bookings-decor-container {
     position: absolute;
     top: 50%;
@@ -417,12 +397,11 @@ html, body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    z-index: 1; /* Achter het formulier */
+    z-index: 1; 
 }
 
 .rood-blok {
     position: absolute;
-    /* Altijd 5% groter dan de form-wrapper */
     width: 105%;
     height: 105%;
     top: 50%;
@@ -439,24 +418,20 @@ html, body {
 
 /* Titel van Bookings */
 .bookings-container h2 {
-    /* Gebruik nu Wendy One */
     font-family: 'Wendy One', sans-serif;
-    color: var(--wit); /* Wit */
+    color: var(--wit); 
     font-weight: 400;
-    /* Groter en schaalbaar */
     font-size: clamp(3rem, 10vw, 5rem);
     margin-bottom: 20px;
-    
-    /* !! AANGEPAST: Nu zichtbaar !! */
     position: relative;
-    z-index: 3; /* Hoger dan het formulier (2) en de blokken (1) */
+    z-index: 3; /* Zorgt dat het boven het formulier staat */
 }
 
 .contact-form-wrapper {
     background-color: var(--wit);
     padding: 30px;
     border-radius: 10px;
-    position: relative; /* Boven de rode blokken */
+    position: relative; 
     z-index: 2;
 }
 
@@ -479,7 +454,7 @@ html, body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f0f0f0; /* Lichtgrijs */
+    background-color: #f0f0f0; 
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
 }
@@ -492,19 +467,18 @@ html, body {
     cursor: pointer;
 }
 
-/* !! AFBEELDING 7: BOOKINGS RECHTS (PERSOON 3) !! */
+/* AFBEELDING 7: BOOKINGS RECHTS */
 .bookings-image-placeholder-right {
     position: absolute;
-    /* !! AANGEPAST: Positie t.o.v. het midden !! */
     right: 50%;
-    margin-right: -700px; /* 600px (helft content) + 100px = 700px */
+    /* 700px rechts van het midden */
+    margin-right: -700px;
     bottom: 0; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 450px) !! */
-    width: clamp(500px, 60vw, 600px); 
-    height: clamp(500px, 60vw, 600px); 
-    z-index: 1; /* Achter het formulier */
+    width: clamp(450px, 60vw, 600px); 
+    height: clamp(450px, 60vw, 600px); 
+    z-index: 1; 
     background-image: url('images/BookingPersoon3.svg');
-    /* !! AANGEPAST: 'cover' naar 'contain' !! */
+    /* 'contain' zodat de bovenkant niet wordt afgesneden */
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -514,16 +488,13 @@ html, body {
 /* --- Reviews Sectie --- */
 #reviews {
     position: relative; 
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 1; 
+    width: 100%; /* Forceer 100% breedte */
+    z-index: 1; /* NAAR DE ACHTERGROND VERPLAATST */
     scroll-margin-top: 70px; 
-    /* Hoogte verkleind */
     padding-top: 100px;
     padding-bottom: 150px;
     background-color: var(--zwart); 
     color: var(--wit);
-    /* !! AANGEPAST: width: 100% toegevoegd !! */
-    width: 100%;
 }
 
 .reviews-container {
@@ -531,8 +502,7 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 4; 
+    z-index: 4; /* VOOR DE LAATSTE SCHEUR */
 }
 
 .reviews-container h2 {
@@ -540,66 +510,48 @@ html, body {
     font-weight: 900;
     text-transform: uppercase;
     text-align: left;
-    /* Gebruik nu Wendy One */
     font-family: 'Wendy One', sans-serif;
     color: var(--wit);
     margin-bottom: 20px;
 }
 
-/* Nieuw introductie tekstblok */
 .review-intro-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     line-height: 1.6;
-    max-width: 600px; /* Alleen aan de linkerkant */
+    max-width: 600px; 
     margin-bottom: 50px;
     text-align: left;
     color: var(--wit);
 }
 
 .review-ticker-wrapper {
-    width: 100%; /* !! AANGEPAST: was 100vw !! */
+    width: 100%;
     overflow: hidden;
     margin-bottom: 20px;
-    position: relative; 
-    
-    /* !! AANGEPAST: Fade-effect is nu een 'mask' i.p.v. een zwarte laag !! */
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%, /* Start de fade-in */
-        black 90%, /* Eindig de fade-out */
-        transparent 100%
-    );
-    /* Voor Webkit-browsers (Safari) */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%, 
-        black 90%, 
-        transparent 100%
-    );
+    position: relative;
+    /* Gebruik nu een 'mask-image' voor het faden */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
+/* De oude ::before en ::after (zwarte balken) zijn verwijderd */
+
 .review-ticker-track {
-    /* 12 blokken (6 + 6 kopie) * 450px breed */
     width: calc(12 * 450px);
     display: flex;
-    /* Snelheid verlaagd (was 40s) */
     animation: ticker 80s linear infinite; 
 }
 
 .review-ticker-track.reverse {
-    /* Animatie opgelost */
     animation: ticker-reverse 80s linear infinite;
 }
 
 .review-blok {
-    width: 420px; /* Breedte van een enkel blok */
+    width: 420px; 
     margin: 0 15px;
     padding: 20px;
     background-color: var(--rood);
-    /* Rand dikker gemaakt */
     border: 5px solid var(--wit);
     border-radius: 10px;
     color: var(--wit);
@@ -622,11 +574,10 @@ html, body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Beweegt met 50% (de lengte van 6 blokken) */
+        transform: translateX(-50%); 
     }
 }
 
-/* Ontbrekende animatie voor 'reverse' rij toegevoegd */
 @keyframes ticker-reverse {
     0% {
         transform: translateX(-50%);
@@ -636,18 +587,16 @@ html, body {
     }
 }
 
-/* !! AFBEELDING 9: REVIEWS RECHTS (PERSOON 4) !! */
+/* AFBEELDING 9: REVIEWS RECHTS */
 .review-photo-placeholder {
     position: absolute;
-    /* !! AANGEPAST: Positie t.o.v. het midden !! */
     right: 50%;
-    margin-right: -700px; /* 600px (helft content) + 100px = 700px */
+    /* 700px rechts van het midden */
+    margin-right: -700px;
     bottom: 0; 
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 2; 
-    /* !! AANGEPAST: MIN-GROOTTE VERHOOGD (was 550px) !! */
-    width: clamp(600px, 60vw, 800px); 
-    height: clamp(600px, 60vw, 800px); 
+    width: clamp(450px, 60vw, 800px); 
+    height: clamp(450px, 60vw, 800px); 
+    z-index: 2; /* ACHTER DE LAATSTE SCHEUR */
     background-image: url('images/ReviewPersoon4.svg');
     background-size: cover;
     background-position: center;
@@ -655,19 +604,14 @@ html, body {
 
 
 /* --- Laatste Afbeelding Sectie --- */
-/* !! AFBEELDING 10: STATISCH (ONDER) !! */
 #final-image {
-    height: 250px; /* !! AANGEPAST: was 500px !! */
+    height: 250px; 
     background-image: url('images/Scheur4.svg');
     background-size: cover;
     background-position: center;
     position: relative; 
-    /* !! AANGEPAST: z-index stapelvolgorde !! */
-    z-index: 3; 
-    /* !! AANGEPAST: Overlapt nu 150px om Afb 9 te bedekken !! */
-    margin-top: -150px;
-    /* !! AANGEPAST: width: 100% toegevoegd !! */
-    width: 100%;
+    z-index: 3; /* BOVEN DE REVIEW-AFBEELDING */
+    margin-top: -150px; /* Overlap vergroot */
 }
 
 .final-image-link {
@@ -678,21 +622,17 @@ html, body {
     overflow: hidden;
 }
 
-/* Nieuwe Instagram Tekst Styling (Vervangt .instagram-overlay-img) */
 .instagram-text-wrapper {
     position: absolute;
     top: 50%;
-    /* Start links */
     left: 10%; 
-    transform: translateY(-50%); /* Alleen verticaal centreren */
+    transform: translateY(-50%); 
     z-index: 10;
     color: var(--zwart); 
     font-family: 'Montserrat', sans-serif;
-    font-weight: 1100; 
-    text-align: left; /* Links uitlijnen */
-    width: auto; /* Laat de breedte door de inhoud te bepalen */
-    /* Optioneel: max-width als je niet te ver naar rechts wilt */
-    /* max-width: 80%; */ 
+    font-weight: 900; 
+    text-align: left; 
+    width: auto; 
 }
 
 .insta-line-1 {
@@ -701,23 +641,30 @@ html, body {
 }
 
 .insta-line-2 {
-    /* Nu als een blok-element om op een nieuwe regel te staan */
     display: block; 
     line-height: 1.1;
-    margin-top: 5px; /* Beetje ruimte tussen de regels */
+    margin-top: 5px; 
 }
 
 .insta-on {
     font-size: clamp(2rem, 6vw, 4rem); 
-    display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
-    margin-right: 0.5em; /* Ruimte tussen 'ON' en 'INSTAGRAM' */
+    display: inline-block; 
+    margin-right: 0.5em; 
 }
 
 .insta-brand {
     font-family: 'Wendy One', sans-serif; 
-    font-size: clamp(2.5rem, 8vw, 5rem); /* Groter dan de rest */
+    font-size: clamp(2.5rem, 8vw, 5rem); 
     font-weight: 400; 
-    display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
+    display: inline-block; 
+}
+
+/* Zwarte achtergrond voor de footer */
+.footer-background {
+    background-color: var(--zwart);
+    height: 100px; 
+    position: relative;
+    z-index: 1; /* Onder de #final-image */
 }
 
 
@@ -751,7 +698,7 @@ html, body {
         height: 800px; 
     }
     .hero-content {
-        padding-top: 100px; /* !! AANGEPAST: was 80px, nu lager !! */
+        padding-top: 100px; 
         padding-left: 0; 
         padding-right: 0;
     }
@@ -772,12 +719,44 @@ html, body {
         display: none; 
     }
     
-    /* Afbeelding 3 (Mobiel) */
-    .hero-image-placeholder-left {
-        /* !! AANGEPAST: Positie t.o.v. het midden !! */
-        left: 50%;
-        margin-left: -350px;
+    /* Afbeeldingen op mobiel (blijven nu aan de zijkant) */
+    .hero-image-placeholder-left,
+    .about-us-image-placeholder,
+    .bookings-image-placeholder-right,
+    .review-photo-placeholder {
+        /* Reset de 'midden'-positionering */
+        left: auto;
+        right: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+        /* Zet ze terug naar de hoeken */
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
     }
+    
+    .hero-image-placeholder-left {
+        left: 0;
+        width: clamp(350px, 45vw, 800px); /* Blijft de clamp-regel gebruiken */
+        height: clamp(350px, 45vw, 800px);
+    }
+    .about-us-image-placeholder {
+        right: 0;
+        width: clamp(350px, 45vw, 500px);
+        height: clamp(350px, 45vw, 500px);
+    }
+    .bookings-image-placeholder-right {
+        right: 0;
+        width: clamp(450px, 60vw, 600px);
+        height: clamp(450px, 60vw, 600px);
+    }
+    .review-photo-placeholder {
+        right: 0;
+        width: clamp(450px, 60vw, 800px);
+        height: clamp(450px, 60vw, 800px);
+    }
+
 
     /* --- Video Wrapper Mobiel (Gecentreerd) --- */
     .video-wrapper {
@@ -815,24 +794,10 @@ html, body {
         max-width: 100%; 
     }
     
-    /* Afbeelding 5 (Mobiel) */
-    .about-us-image-placeholder {
-        /* !! AANGEPAST: Positie t.o.v. het midden !! */
-        right: 50%;
-        margin-right: -350px;
-    }
-
     /* --- Bookings Mobiel --- */
     #bookings {
         padding-top: 65px;
         padding-bottom: 150px;
-    }
-    
-    /* Afbeelding 7 (Mobiel) */
-    .bookings-image-placeholder-right {
-        /* !! AANGEPAST: Positie t.o.v. het midden !! */
-        right: 50%;
-        margin-right: -350px;
     }
     
     /* --- Reviews Mobiel --- */
@@ -847,9 +812,9 @@ html, body {
     .review-ticker-wrapper {
         margin-left: 0;
         width: 100%;
-        /* Fade-effect voor mobiel (minder breed) */
-        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        /* Iets minder faden op mobiel */
         -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     .review-ticker-track {
         width: calc(12 * 300px);
@@ -858,16 +823,10 @@ html, body {
         width: 280px; 
     }
     
-    /* Afbeelding 9 (Mobiel) */
-    .review-photo-placeholder {
-        /* !! AANGEPAST: Positie t.o.v. het midden !! */
-        right: 50%;
-        margin-right: -350px;
-    }
-    
     /* --- Laatste Afbeelding Mobiel --- */
     #final-image {
-        height: 150px; /* !! AANGEPAST: was 300px !! */
+        height: 150px; 
+        margin-top: -100px; /* Kleinere overlap op mobiel */
     }
 
     /* Instagram tekst op mobiel */
@@ -875,9 +834,10 @@ html, body {
         left: 50%; /* Centreer op mobiel */
         transform: translate(-50%, -50%);
         text-align: center;
+        width: 90%; /* Zorg dat het niet van het scherm valt */
     }
     .insta-line-2 {
-        display: flex; /* Terug naar flex om 'ON' en 'INSTAGRAM' naast elkaar te houden */
+        display: flex; 
         justify-content: center;
     }
 }
