@@ -13,7 +13,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+f
 /* !! AANGEPAST: overflow-x: hidden; geldt nu voor html én body !! */
 html, body {
     font-family: 'Montserrat', sans-serif;
@@ -250,38 +250,29 @@ html, body {
 }
 
 /* --- Overgang (Gescheurd Papier) --- */
+/* !! AANGEPAST: Dit is de nieuwe, losstaande structuur !! */
 .torn-paper-divider,
 .torn-paper-divider-bottom {
-    position: absolute;
-    /* !! AANGEPAST: Robuustere methode voor volledige breedte !! */
-    /* !! DEZE 'FULL BLEED'-TRUC ZOU MOETEN WERKEN !! */
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* Aangepaste hoogte */
+    position: relative; /* Niet meer absolute */
+    width: 100%;
     height: 80px;
     z-index: 11; /* Bovenop alles */
-    transform-origin: center center;
     background-repeat: no-repeat;
     /* Zorgt dat de afbeelding volledig schaalt */
     background-size: 100% 100%;
+    /* Centreert de 'scheur' op de scheidingslijn */
+    margin-top: -40px; /* Helft van de hoogte */
+    margin-bottom: -40px; /* Helft van de hoogte */
 }
 
 /* Positionering voor de bovenste 3 dividers */
 .torn-paper-divider {
-    /* Gecentreerd op de scheidingslijn */
-    bottom: 0;
-    /* Moet de translateX(-50%) behouden */
-    transform: translateX(-50%) translateY(50%);
+    /* (Standaard positionering is goed) */
 }
 
 /* Positionering voor de onderste 3 dividers */
 .torn-paper-divider-bottom {
-    /* Gecentreerd op de scheidingslijn */
-    bottom: 0;
-    /* Moet de translateX(-50%) behouden */
-    transform: translateX(-50%) translateY(50%) scale(-1, -1); /* Gespiegeld */
+    transform: scale(-1, -1); /* Gespiegeld */
 }
 
 /* Specifieke afbeeldingen voor elke divider */
@@ -289,8 +280,7 @@ html, body {
     /* AFBEELDING 4 */
     /* Vervangen door Scheur 3 en gespiegeld */
     background-image: url('images/Scheur3.svg');
-    /* Moet de translateX(-50%) behouden */
-    transform: translateX(-50%) translateY(50%) scaleX(-1); 
+    transform: scaleX(-1); /* Alleen horizontaal spiegelen */
 }
 #divider-2 {
     /* AFBEELDING 6 */
@@ -718,9 +708,6 @@ html, body {
     font-weight: 400; 
     display: inline-block; /* Zodat 'ON' en 'INSTAGRAM' op dezelfde regel kunnen */
 }
-
-/* !! AANGEPAST: Deze footer is niet meer nodig door de z-index aanpassingen */
-/* .footer-background { ... } */
 
 
 /* --- @MEDIA QUERY (Mobiele Weergave) --- */
