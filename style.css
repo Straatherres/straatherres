@@ -547,6 +547,7 @@ main {
 
 .review-ticker-track.reverse {
     animation: ticker-reverse 80s linear infinite;
+    width: calc(12 * 550px); /* 12 * (Nieuwe breedte 520px + 30px margin) */
 }
 
 .review-blok {
@@ -559,6 +560,19 @@ main {
     color: var(--wit);
     font-family: 'Montserrat', sans-serif;
 }
+
+.review-blok--breed {
+    width: 520px; 
+    margin: 0 15px;
+    padding: 20px;
+    background-color: var(--rood);
+    border: 5px solid var(--wit);
+    border-radius: 10px;
+    color: var(--wit);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 .review-blok p {
     font-size: 1rem;
     line-height: 1.5;
@@ -594,7 +608,7 @@ main {
     position: absolute;
     right: 50%;
     /* 700px rechts van het midden */
-    margin-right: -700px;
+    margin-right: -750px;
     bottom: 0; 
     width: clamp(450px, 60vw, 800px); 
     height: clamp(450px, 60vw, 800px); 
@@ -608,12 +622,25 @@ main {
 /* --- Laatste Afbeelding Sectie --- */
 #final-image {
     height: 250px; 
-    background-image: url('images/Scheur4.svg');
-    background-size: cover;
+    background-image: url('images/Scheur4.png');
+    background-size: 100% 100%;
     background-position: center;
     position: relative; 
-    z-index: 3; /* BOVEN DE REVIEW-AFBEELDING */
-    margin-top: -150px; /* Overlap vergroot */
+    z-index: 2;
+    margin-top: -150px;
+}
+
+/* Speciale divider voor de footer */
+.torn-paper-divider-bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    display: block; 
+    object-fit: fill; 
+    z-index: 11;
+    transform-origin: center center;
+    left: 0;
+    bottom: 0; 
 }
 
 .final-image-link {
@@ -627,9 +654,9 @@ main {
 .instagram-text-wrapper {
     position: absolute;
     top: 50%;
-    left: 10%; 
-    transform: translateY(-50%); 
-    z-index: 10;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 12;
     color: var(--zwart); 
     font-family: 'Montserrat', sans-serif;
     font-weight: 900; 
@@ -654,11 +681,36 @@ main {
     margin-right: 0.5em; 
 }
 
+/* Dit is nu ALLEEN de 'position: relative' container */
 .insta-brand {
+    display: inline-block; /* Behoudt de layout */
+    position: relative; /* Ankerpunt voor het logo */
+    /* Alle font- en padding-regels zijn hier weggehaald */
+}
+
+/* Nieuw logo boven "Instagram" */
+.insta-logo {
+    position: absolute;
+    width: 50px; /* Pas grootte aan naar wens */
+    height: 50px;
+    
+    /* Positioneer rechtsboven */
+    top: 10px;
+    right: 0;
+    
+    /* Zorgt dat het logo boven de tekst-padding zweeft */
+    z-index: 10; 
+}
+
+.insta-brand-text {
+    /* Alle 'verloren' font-styles komen hier */
     font-family: 'Wendy One', sans-serif; 
     font-size: clamp(2.5rem, 8vw, 5rem); 
     font-weight: 400; 
-    display: inline-block; 
+    
+    /* Belangrijk: */
+    display: inline-block;
+    padding-top: 0px; /* Maakt ruimte BOVEN de tekst voor het logo */
 }
 
 /* Zwarte achtergrond voor de footer */
@@ -824,6 +876,18 @@ main {
     .review-blok {
         width: 280px; 
     }
+
+/* BINNEN de @media query */
+
+.review-blok--breed {
+    width: 320px; /* Nieuwe, bredere maat voor mobiel */
+}
+
+.review-ticker-track.reverse {
+    /* Nieuwe berekening voor de mobiele 'reverse' track */
+    /* 12 * (Nieuwe mobiele breedte 320px + 30px margin) */
+    width: calc(12 * 350px); 
+}
     
     /* --- Laatste Afbeelding Mobiel --- */
     #final-image {
